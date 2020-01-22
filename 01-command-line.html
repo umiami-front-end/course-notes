@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: Command Line Interface (CLI)</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>Command Line Interface (<abbr title="Command Line Interface">CLI</abbr>)</h1>
+    </header>
+
+    <main>
+
+      <section>
+        <h2>What is the command line?</h2>
+
+        <p>Text-only interaction with a computer to issue commands.</p>
+      </section>
+
+
+      <section>
+        <h2>Unix &amp; Linux</h2>
+
+        <ul>
+          <li>operating systems in which are typically based on a CLI</li>
+          <li>very prevalent for computers hosting Internet servers</li>
+          <li>macOS is Unix-based</li>
+          <li>Linux is (essentially) an open-source, Unix-like OS</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Unix Philosophy</h2>
+
+        <p><strong>Do one thing and do it well.</strong></p>
+      </section>
+
+
+      <section>
+        <h2>Shells 🥜</h2>
+
+        <p>The shell "translates" our command for the computer to understand. There are multiple "flavors" which have different syntax, features:</p>
+
+        <ul>
+          <li>Bourne Again Shell (<code>bash</code>)*</li>
+          <li>C Shell (<code>csh</code>)</li>
+          <li>Korn Shell (<code>ksh</code>)</li>
+          <li>Z Shell (<code>zsh</code>)</li>
+        </ul>
+
+        <p><small>* we will be using <code>bash</code>, the default shell and Linux</small></p>
+
+        <p><small>** the default shell in macOS Catalina (10.15) is <code>zsh</code>. To use <code>bash</code>, type <code>bash</code> at the prompt.</small></p>
+      </section>
+
+
+      <section>
+        <h2>Cons</h2>
+
+        <ul>
+          <li>Text only</li>
+          <li>Does not have visual 'cues'</li>
+          <li>Steeper learning curve</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Pros</h2>
+
+        <ul>
+          <li>Much faster, efficient</li>
+          <li>Repetitive tasks can be scripted</li>
+          <li>Expands software resources</li>
+          <li>And...</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Bonus</h2>
+
+        <p>People think you're a hacker!</p>
+
+        <img src="img/01-matrix.jpg" alt="I know Kung Fu." />
+
+        <p><small><em>The Matrix</em> (1999)</small></p>
+      </section>
+
+
+      <section>
+        <h2>Accessing the Terminal (macOS)</h2>
+
+        <p>Applications → Utilities → Terminal</p>
+
+        <img src="img/01-terminal.png" alt="A basic terminal" />
+
+        <p>The terminal will always open to your "home" folder.</p>
+      </section>
+
+
+      <section>
+        <h2>The Prompt</h2>
+
+        <p><code>$</code></p>
+
+        <p>The prompt awaits your input...</p>
+      </section>
+
+
+
+      <section>
+        <h2>Help Commands</h2>
+
+        <p><code>man <em>command</em></code>: display a commands 'manual' page</p>
+
+        <p><code><em>command</em> --help</code>: display a command's help screen</p>
+      </section>
+
+
+      <section>
+        <h2>Navigating the Filesystem</h2>
+
+        <p><code>pwd</code>: display the present working directory</p>
+
+        <p><code>cd</code>: open directory</p>
+
+        <p><code>ls</code>: list files</p>
+
+        <p><code>mkdir</code>: create a new directory</p>
+      </section>
+
+
+      <section>
+        <h2>Working with Files</h2>
+
+        <p><code>touch</code>: create a new, empty file</p>
+
+        <p><code>mv</code>: move a file</p>
+
+        <p><code>cp</code>: copy a file</p>
+
+        <p><code>cat</code> or <code>less</code>: show the contents of a file</p>
+      </section>
+
+      <section>
+        <h2>Deleting Files &amp; Directories</h2>
+
+        <p><strong style="color: rgb(205,55,63);">Warning!</strong> Deleting a file or directory using any of the following commands in <em>permanent</em>. There is no way to recover deleted files!</p>
+
+        <p><code>rm</code>: delete a file</p>
+
+        <p><code>rm -rf *</code>: <strong style="color: rgb(205,55,63);">Never type this command.</strong> It will delete everything.</p>
+      </section>
+
+      <section>
+        <h2>Flags</h2>
+
+        <p>Programs often have options which can be tacked on to a command to enhance the output. These are called 'flags.'</p>
+
+        <p><code>ls <strong>-la</strong></code>: list all files (including hidden ones) in long format</p>
+
+        <p><code>rm <strong>-rf</strong> <em>directory</em></code>: force the removal of a directory and all contents within</p>
+      </section>
+
+      <section>
+        <h2>Wildcards</h2>
+
+        <p><code>*</code>: match any (zero or more) characters</p>
+
+        <p><strong>Example:</strong> <code>*all</code> will match "all", "ball", "call", "small", but not "allegory".</p>
+
+        <p><code>?</code>: match a single character</p>
+
+        <p><strong>Example:</strong> <code>?all</code> will match "ball" and "call", but not "all" or "small".</p>
+      </section>
+
+      <section>
+        <h2>Directing Output</h2>
+
+        <p>One of the features of the command line is that we can redirect where our output ends up. Instead of it displaying on-screen, we can save the output to a file or send it to another program.</p>
+
+        <p><code>&gt;</code>: redirects output to a new file (or overwrite an existing file)</p>
+
+        <p><code>&gt;&gt;</code>: append output to an existing file</p>
+
+        <p><code>|</code>: direct output from one program to another</p>
+      </section>
+
+      <section>
+        <h2>Editors</h2>
+
+        <p>A very common use of the command line is to edit text files. A user has many options to choose from, but it is recommended beginners use <code>nano</code>.</p>
+
+        <p>Other options include <code>emacs</code> and <code>vi</code>, which have <em>very steep</em> learning curves but are very powerful once understood.</p>
+      </section>
+
+      <section>
+        <h2><code>nano</code></h2>
+
+        <img src="img/01-nano.png" alt="The nano editor" />
+      </section>
+
+      <section>
+        <h2>Permissions</h2>
+
+        <p>Because Unix/Linux systems are often shared by multiple users, every file and directory has metadata which identifies who may read (<code>r</code>), write (<code>w</code>) or execute (<code>x</code>) that item.</p>
+
+        <p>Unix/Linux classifies a user as: you (<code>u</code>), a group member (<code>g</code>) or other/everyone (<code>o</code>).</p>
+
+        <p>We can combine this information to set file permissions.</p>
+      </section>
+
+      <section>
+        <h2>Permissions: Commands</h2>
+
+        <p><code>chmod</code>: change permissions of a file, directory</p>
+
+        <p><code>chown</code>: change ownership of a file, directory</p>
+      </section>
+
+      <section>
+        <h2>Permissions: Symbolic Method</h2>
+
+        <p><code>who +/- permission</code></p>
+
+        <p><code>u+wr</code>: give the user read and write access (no execute)</p>
+
+        <p><code>o-rw</code>: revoke read, write access for others</p>
+      </section>
+
+      <section>
+        <h2>Permissions: Octal Method</h2>
+
+        <p>We can also indicate permissions by adding numbers:
+
+        <ul>
+          <li><code>4</code>: read</li>
+          <li><code>2</code>: write</li>
+          <li><code>1</code>: execute</li>
+        </ul>
+
+        <p>The permission is three digits, with the hundreds column representing the user, tens for group and ones for all.</p>
+
+        <p><code>755</code>: User has all access; group and others can read and execute</p>
+
+        <p><code>600</code>: User has read, write access; group and others have no access</p>
+      </section>
+
+      <section>
+        <h2>Utilities</h2>
+
+        <p><code>clear</code>: clear the screen</p>
+
+        <p><code>curl</code>: transfer data from a URL</p>
+
+        <p><code>wc</code>: word count (lines, words, characters)</p>
+
+        <p><code>whois</code>: display domain name information</p>
+
+        <p><code>whoami</code>: in case you forgot 🙂</p>
+      </section>
+
+    </main>
+    <footer>
+      <p><a href="index.html">&laquo; Course Notes</a></p>
+    </footer>
+  </body>
+</html>
