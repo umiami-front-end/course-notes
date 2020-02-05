@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: Git Basics</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>Git Basics</h1>
+    </header>
+
+    <main>
+
+      <section>
+        <h2>What is version control?</h2>
+
+        <p>Software (and the process) which keeps track of successive revisions. A user can refer to old versions of work if necessary.</p>
+      </section>
+
+      <section>
+        <h2>Single File vs. Multiple Files</h2>
+
+        <p>Single files may be tracked using a naming convention (i.e. v1, v2, etc.).</p>
+
+        <p>What if a change involves many, related files? How do you group those changes together? What if a project has thousands of files?</p>
+      </section>
+
+      <section>
+        <h2>Version Control Software</h2>
+
+        <ul>
+          <li><code>cvs</code> - concurrent version system</li>
+          <li><code>svn</code> - subversion</li>
+          <li><code>hg</code> - mercurial</li>
+          <li><code>git</code></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Git</h2>
+
+        <ul>
+          <li>decentralized</li>
+          <li>distributed</li>
+          <li>non-linear development</li>
+          <li>conflict resolution</li>
+          <li>very regimented</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Git</h2>
+
+        <img src="img/02-xkcd-git-1597.png" alt="xkcd: Git (1597)" />
+
+        <p><small>by Randall Munroe (<a href="https://xkcd.com/1597/">CC BY-NC 2.5</a>)</small></p>
+
+        <!-- If that doesn't fix it, git.txt contains the phone number of a friend of mine who understands git. Just wait through a few minutes of 'It's really pretty simple, just think of branches as...' and eventually you'll learn the commands that will fix everything. -->
+
+      </section>
+
+      <section>
+        <h2>Repository</h2>
+
+        <p>A <em>repository</em> is a project in which all work is stored and tracked.</p>
+
+        <p>A repository's contents include files, structure of directories and hidden files which keep track of all changes.</p>
+
+        <p><em>Local</em> repositories reside on a developer's computer; <em>remote</em> repositories are on a server.</p>
+      </section>
+
+      <section>
+        <h2>Understanding State</h2>
+
+        <p>"State" is when a computer remembers preceding events or interactions involving an item.</p>
+      </section>
+
+      <section>
+        <h2>States of Earth 🌎</h2>
+
+        <ul>
+          <li>dawn</li>
+          <li>day</li>
+          <li>dusk</li>
+          <li>night</li>
+        </ul>
+
+        <p>In one location — Earth itself is the same — it is the states which change.</p>
+      </section>
+
+      <section>
+        <h2>Git's States</h2>
+
+        <ol>
+          <li>A file's previous version.</li>
+          <li>A current version which is changed.</li>
+          <li>A (new) saved version which replaces the previous version.</li>
+        </ol>
+
+        <p>The file is the same — git just notices it has changed states.</p>
+      </section>
+
+      <section>
+        <h2>The "commit"</h2>
+
+        <p>Git is concerned with the commit (saved state) than the actual changes. Each commit represents a snapshot of the project at a given time.</p>
+
+        <p>"Commit or it didn't happen."</p>
+      </section>
+
+      <section>
+        <h2>CLI vs. GUI</h2>
+
+        <p>Git's "natural" environment is the CLI, though GUI programs also exist.</p>
+
+        <p>We will be working with the command-line version of git.</p>
+      </section>
+
+      <section>
+        <h2>Git Commands</h2>
+
+        <ul>
+          <li>More than <a href="https://git-scm.com/docs">75 functions</a></li>
+          <li>Require at least one other argument
+            <ul>
+              <li><code>git <em>log</em></code></li>
+              <li><code>git <em>checkout master</em></code></li>
+            </ul>
+          </li>
+          <li>Can be read like a sentence
+            <ul>
+              <li>"Git, show me the log."</li>
+              <li>"Git, checkout the 'master' branch."</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Installing Git (on macOS)</h2>
+
+        <p>Typing <code>git</code> at the command prompt will alert you to install "command line developer tools."</p>
+
+        <p><small>A GUI install package is available at <a href="http://git-scm.com">git-scm.com</a> for all operating systems.</small></p>
+      </section>
+
+      <section>
+        <h2>Configuring Git</h2>
+
+        <p>Git tracks commits and <em>who</em> made the commits.</p>
+
+        <pre>$ git config --global user.name "Jane Doe"<br/>$ git config --global user.email "jane@email.com"<br/>$ git config --global core.editor "nano"</pre>
+
+        <p>The <code>--global</code> flag sets these configurations for all projects, but a different configuration may be set for just one project.</p>
+      </section>
+
+      <section>
+        <h2>Initializing a Repository</h2>
+
+        <p>Git has to know about the files to be track before it can recognize a change. To do this, <em>initialize</em> the repository.</p>
+
+        <pre>git init</pre>
+      </section>
+
+      <section>
+        <h2>Cloning a Repository</h2>
+
+        <p>Another way to obtain a repository is to <em>clone</em> one from a server (such as GitHub). This saves a replica of the project on your computer.</p>
+
+        <pre>git clone &lt;url&gt;</pre>
+      </section>
+
+      <section>
+        <h2>Preparing a Commit</h2>
+
+        <p>To create a commit, first identify which files should be included in the snapshot. This is called <em>staging</em>.</p>
+
+        <pre>git add &lt;filename(s)&gt;</pre>
+      </section>
+
+      <section>
+        <h2>Checking Status</h2>
+
+        <p>How do we know which files are being tracked? Modified? Ready to be committed? We can check the repository's <em>status</em>.</p>
+
+        <pre>git status</pre>
+      </section>
+
+      <section>
+        <h2>Commit!</h2>
+
+        <p>A commit <em>locks down</em> the files we have added to the staging area.</p>
+
+        <pre>git commit --message "A well-crafted commit message!"</pre>
+      </section>
+
+      <section>
+        <h2>When to Commit?</h2>
+
+        <p>A user's workflow may vary, but ideal commits are done <em>when the code for the feature being worked on functions correctly</em>.</p>
+
+        <p>For example: If you are creating a web page, a commit may occur when the HTML document structure has been created and validates.</p>
+      </section>
+
+      <section>
+        <h2>What to commit?</h2>
+
+        <p>Again, the contents of a commit may vary from change to change. The change may include a change to one line in a single file or multiple lines in multiple files.</p>
+
+        <p>For example: If you are adding a style sheet to a web site, you would include the css file, and any html files which had the <code>&lt;link&gt;</code> tag added.</p>
+      </section>
+
+      <section>
+        <h2>Git Commit</h2>
+
+        <img src="img/02-xkcd-git-commit-1296.png" alt="xkcd: Git Commit (1296)" />
+
+        <!-- Merge branch 'asdfasjkfdlas/alkdjf' into sdkjfls-final -->
+
+        <p><small>by Randall Munroe (<a href="https://xkcd.com/1597/">CC BY-NC 2.5</a>)</small></p>
+      </section>
+
+      <section>
+        <h2>Writing Commit Messages</h2>
+
+        <p>When writing commit messages, be:
+
+        <ul>
+          <li><strong>Useful.</strong> Describe what changed.</li>
+          <li><strong>Detailed (enough).</strong> Keep commit messages to ~70 characters.</li>
+          <li><strong>Consistent.</strong> Pick a voice, stick with it.</li>
+        </ul>
+      </section>
+
+
+
+      <section>
+        <h2>A Repository's History</h2>
+
+        <p>With every commit, we create a history of our project.</p>
+
+        <div style="display: grid; grid-template-columns: 475px 1fr; grid-gap: 10px">
+          <img src="img/02-log.png" alt="A git log." style="width: 100%;" />
+          <img src="img/02-head.png" alt="Git log, visualized." class="sm"/>
+        </div>
+
+        <p><em>When working with git, we are always moving forward!</em></p>
+      </section>
+
+      <section>
+        <h2>View a Repository's Log</h2>
+
+        <p>To view a repository's history:</p>
+
+        <pre>git log<br/>git log --pretty=oneline</pre>
+
+        <ul>
+          <li>shows every commit (in reverse order)</li>
+          <li>can check differences between branches</li>
+          <li>can check a range of commits using ids</li>
+          <li>a complete list of options (and why to use them) <a href="https://git-scm.com/docs/git-log">available online</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Removing Files</h2>
+
+        <p>The removal of files is also tracked.</p>
+
+        <pre>git rm &lt;filename&gt;</pre>
+
+        <p>After this change is committed, the next (and future) snapshot(s) will not include the file.</p>
+
+        <p>If a file is removed via the GUI, git is still tracking the file!</p>
+
+        <p><code>git rm</code> does nothing if the file has already been removed.</p>
+      </section>
+
+      <section>
+        <h2>Examining Differences</h2>
+
+        <p>Git can display differences between files, commits and branches.</p>
+
+        <pre>git diff &lt;filename/branch&gt;<br/>git diff --stat HEAD~1  <span># one step back in log</pre>
+      </section>
+
+      <section>
+        <h2>Branches</h2>
+
+        <p>A branch is a copy of a project. This is used for experimentation without fear of damaging the original, <code>master</code> version.</p>
+
+        <pre>git branch  <span># lists all branches</pre>
+      </section>
+
+      <section>
+        <h2>Creating a Branch</h2>
+
+        <p>The <code>branch</code> argument is also used to create a new branch:</p>
+
+        <pre>git branch &lt;branch-name&gt;</pre>
+
+        <p>Branch names should be based on its purpose (i.e. <code>fix-typo</code>, <br/><code>change-font-styles</code>).</p>
+      </section>
+
+      <section>
+        <h2>Checking out a Branch</h2>
+
+        <p>Creating a branch <em>does not</em> automatically switch you over to the branch. You must checkout the branch before making changes.</p>
+
+        <pre>git checkout &lt;branch-name&gt;</pre>
+
+        <p>When you want to return to the <code>master</code> branch, type:</p>
+
+        <pre>git checkout master</pre>
+      </section>
+
+      <section>
+        <h2>Other Uses for Checkout</h2>
+
+        <p><code>git checkout</code> can also be used to review previous commits. Only do this to review old code, experiment or create new branches.</p>
+
+        <p>When you checkout, you are working with a <em>detatched head</em> — your code is not part of any branch; it has no history.</p>
+
+        <p>Never commit with a detached head!</p>
+      </section>
+    </main>
+  </body>
+</html>
