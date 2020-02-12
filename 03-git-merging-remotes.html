@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: Git: Merging &amp; Remotes</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>Git: Merging &amp; Remotes</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>A Quick Review</h2>
+
+        <p><code>git ...</code></p>
+
+        <ul style="display:grid; grid-template-columns: repeat(2, 1fr);">
+          <li><code>init</code></li>
+          <li><code>clone</code></li>
+          <li><code>add</code></li>
+          <li><code>rm</code></li>
+          <li><code>commit</code></li>
+          <li><code>status</code></li>
+          <li><code>log</code></li>
+          <li><code>diff</code></li>
+          <li><code>branch</code></li>
+          <li><code>checkout</code></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Merging Branches</h2>
+
+        <p>Branches may be used for work you plan to throw away. Sometimes that work is folded back into the master branch.</p>
+
+        <p>A <em>merge</em> can combine two or more branches.</p>
+
+        <pre>git checkout master  <span># change to master first!</span><br/>git merge &lt;branch-name&gt;</pre>
+      </section>
+
+      <section>
+        <h2>Merge Conflicts</h2>
+
+        <p>When a merge occurs, git checks for conflicts between the branches. One of three things occur:</p>
+
+        <ul>
+          <li>fast forward</li>
+          <li>check against a common ancestor</li>
+          <li>prompt user to resolve conflict</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Fast Forward</h2>
+
+        <p>A <em>fast forward</em> merge occurs when master has not changed since the branch occured.</p>
+
+        <p>Everything merges without issue.</p>
+      </section>
+
+      <section>
+        <h2>Checking Ancestors</h2>
+
+        <p>When master and a branch both have updates, git checks the nearest common ancestor for conflicts.</p>
+
+        <p>If there are none, the user is prompted to write a commit message for the merge. Everything then merges without issue.</p>
+      </section>
+
+      <section>
+        <h2>Merge Conflicts</h2>
+
+        <p>When master and a branch have updates to the same line(s), git <em>does not</em> merge the branches.</p>
+
+        <p>Git alerts the developer with an error message and identifies the conflicting content within the file.</p>
+
+        <pre>Auto-merging index.html<br/>CONFLICT (content): Merge conflict in index.html<br/>Automatic merge failed; fix conflicts and then commit<br/>the result.</pre>
+
+        <p>Until the conflict is resolved, a merge cannot occur.</p>
+      </section>
+
+      <section>
+        <h2>Fixing Conflicts</h2>
+
+        <pre><<<<<<< HEAD<br/>		&lt;h1&gt;Kitties&lt;/h1&gt;<br/>=======<br/>		&lt;h1&gt;Felines&lt;/h1&gt;<br/>>>>>>>> update-heading</pre>
+
+        <p>To resolve a conflict:</p>
+
+        <ol>
+          <li>Open the file with the conflicts.</li>
+          <li>Select the desired version.</li>
+          <li>Remove the extra characters added by git.</li>
+          <li>Commit the change.</li>
+        </ol>
+
+        <p>In the commit message, note the merge includes resolved conflicts.</p>
+      </section>
+
+      <section>
+        <h2>Deleting Branches</h2>
+
+        <p>After a branch is no longer needed, it can be deleted:</p>
+
+        <pre>git branch -d &lt;branch-name&gt;</pre>
+      </section>
+
+      <section>
+        <h2>Remote Repositories</h2>
+
+        <p>Git works offline by default. However, repositories may be hosted on a server for developers collaborating on a project.</p>
+
+        <p>These are <em>bare</em> repos — there is no staging area for commits.</p>
+
+        <p>A remote repository serves as a hub. The master of a remote repository is called the <em>origin</em>. Developers have a copy (<em>clone</em>) of the repository.</p>
+
+        <p>All changes are synchronized with the origin. </p>
+      </section>
+
+      <section>
+        <h2>Working Remotely</h2>
+
+        <p>When working remotely, changes are not truly checked in until a change is:
+
+        <ol>
+          <li>committed locally</li>
+          <li>pushed to the remote server</li>
+        </ol>
+
+        <p>Commit <em>and</em> push or it didn't happen!</p>
+      </section>
+
+      <section>
+        <h2>Pushing</h2>
+
+        <p>A <em>push</em> merges the local repository with the remote one.</p>
+
+        <pre>git push &lt;remote-name&gt; &lt;branch-name&gt;</pre>
+
+        <p>Note: local and remote branch names are not required to be identical, but it is a good idea to keep them the same!</p>
+      </section>
+
+      <section>
+        <h2>Pulling</h2>
+
+        <p>A <em>pull</em> merges the remote repository with the local one.</p>
+
+        <pre>git pull &lt;remote-name&gt; &lt;branch-name&gt;</pre>
+
+        <p>Pull the origin's branch regularly to keep updated with the project! A pull is often required before a push.</p>
+
+        <p>Remote branch names are usually formatted as <code>remote-name/branch-name</code> (i.e. <code>origin/branch</code>).</p>
+      </section>
+
+      <section>
+        <h2>Tracking</h2>
+
+        <p>To simplify pushing/pulling, it is possible to create a <em>tracking branch</em> which remembers where to push/pull from:</p>
+
+        <pre>git push -u &lt;remote-name&gt; &lt;branch-name&gt;</pre>
+
+        <p>Moving forward, the remote, branch names aren't necessary.</p>
+
+        <pre>git push<br/>git pull</pre>
+      </section>
+
+      <section>
+        <h2>Fetching</h2>
+
+        <p>A <em>fetch</em> pulls a read-only version of <strong>everything</strong> from a remote server so a developer can work offline. Git uses this to compare changes against when no Internet connection is available.</p>
+
+        <pre>git fetch</pre>
+      </section>
+
+      <section>
+        <h2>Git Hosting</h2>
+
+        <ul>
+          <li>GitHub</li>
+          <li>BitBucket</li>
+          <li>GitLab</li>
+          <li>Maybe something self-hosted with no web interface!</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Git Hosting Terminology</h2>
+
+        <p><strong>Fork:</strong> to copy a "bare" repository into your account</p>
+
+        <p><strong>Issues:</strong> an area where developers submit bugs, propose features, etc.</p>
+
+        <p><strong>Pull/Merge Request:</strong> notifying the origin of changes to be merged</p>
+      </section>
+
+      <section>
+        <h2>Pull Requests</h2>
+
+        <p>Pull requests can be compared across forks. Be sure to select the right base repository, base branch.</p>
+
+        <p>Usually a commit message is pulled in, but an additional comment can be added, offering more details about what exactly was changed and why (maybe it fixes a bug listed in issues).</p>
+      </section>
+
+    </main>
+  </body>
+</html>
