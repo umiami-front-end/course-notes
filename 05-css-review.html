@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: Cascading Style Sheets</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>Cascading Style Sheets (CSS)</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>What is CSS?</h2>
+
+        <ul>
+          <li>defines how documents are presented</li>
+          <li>relies on the DOM to isolate parts to be styled</li>
+          <li>a rule-based language</li>
+          <li>specification is broken up into modules</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Why CSS?</h2>
+
+        <ul>
+          <li>design consistency</li>
+          <li>avoids duplication</li>
+          <li>allows for site-wide changes in one place</li>
+          <li>faster page downloads</li>
+        </ul>
+
+      </section>
+
+      <section>
+        <h2>CSS Syntax</h2>
+
+        <pre>selector {<br/>  property: value;<br/>}</pre>
+
+        <ul>
+          <li>a property + value is a <em>declaration</em></li>
+          <li>rules may have multiple declarations</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Using CSS</h2>
+
+        <ul>
+          <li>inline styles</li>
+          <li>the <code>&lt;style&gt;</code> tag</li>
+          <li>external style sheet</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Presentation, separate from structure</h2>
+
+        <p>By linking to one file with the entire site's style guide, when a change is requested (or necessary), it wil be applied to every page on the site.</p>
+      </section>
+
+      <section>
+        <h2>Don't forget HTML!</h2>
+
+        <p>Before styling a web page, make sure you are working with valid HTML.</p>
+
+        <p>Mistakes in your HTML will break your CSS.</p>
+
+        <p>It is common to make tweaks to HTML as you style. Whenever making a change to HTML, re-validate the page to make sure no errors have been introduced.</p>
+      </section>
+    </main>
+  </body>
+</html>

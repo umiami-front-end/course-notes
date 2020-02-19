@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: CSS Selectors</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>CSS Selectors</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Selectors</h2>
+
+        <p>Selectors allow us to identify the part of our HTML to be styled.</p>
+      </section>
+
+
+      <section>
+        <h2>Other uses</h2>
+
+        <p>Selectors are not only used for CSS. The conventions may be used in:</p>
+
+        <ul>
+          <li>JavaScript</li>
+          <li>other language libraries</li>
+          <li>for web scraping</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Universal Selector</h2>
+
+        <pre><strong>*</strong> {<br/>  ...<br/>}</pre>
+
+        <ul>
+          <li>matches elements of any type</li>
+          <li>beware of processing overhead</li>
+          <li>these rules are applied to <em>all</em> elements</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Type Selector</h2>
+
+        <pre><strong>a</strong> {<br/>  ...<br/>}</pre>
+
+        <ul>
+          <li>matches an element by name</li>
+          <li>these rules are applied to all <code>a</code> elements</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>ID Selector</h2>
+
+        <pre><strong>#cats</strong> {<br/>  ...<br/>}</pre>
+
+        <ul>
+          <li>matches an element with an <code>id</code> attribute with the specified value</li>
+          <li>the selector value and attribute value must be an exact match</li>
+          <li><code>id</code> attribute values should be unique</li>
+          <li>these rules are applied to the element with an id attribute of "cats"</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Class Selector</h2>
+
+        <pre><strong>.kittens</strong> {<br/>  ...<br/>}</pre>
+
+        <ul>
+          <li>matches all elements with a <code>class</code> attribute with the specified value</li>
+          <li>these rules are applied to all elements with a class attribute of "kittens"</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Attribute Selectors</h2>
+
+        <pre><strong>[href]</strong> {<br/>  ...<br/>}</pre>
+
+        <ul>
+          <li>matches all elements with the given attribute</li>
+          <li>these rules are applied to all elements which contain a <code>href</code> attribute</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Attribute Selector Syntax</h2>
+
+        <p>Attribute selectors can also focus on contents of an attribute value.</p>
+
+        <ul>
+          <li><code>[attr=value]</code>: exact match</li>
+          <li><code>[attr^=value]</code>: begins with</li>
+          <li><code>[attr$=value]</code>: ends with</li>
+          <li><code>[attr*=value]</code>: contains one occurrance</li>
+          <li><code>[attr~=value]</code>: exact match among multiple values
+            <ul>
+              <li>values must be whitespace separated</li>
+            </ul>
+          </li>
+          <li><code>[attr|=value]</code>: exact match <em>or</em> begins with value after a hyphen</li>
+        </ul>
+
+        <p>Adding <code>i</code> to any of these (i.e. <code>[attr=value i]</code>) makes the search case-insensitive.</p>
+      </section>
+
+
+      <section>
+        <h2>Combining Selectors</h2>
+
+        <ul>
+          <li>simple selectors can be mixed-and-matched</li>
+          <li>offers narrow focus on HTML to be styled</li>
+          <li>can reduce reliance on id, class selectors</li>
+          <li>can reduce amount of code used</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Combined</h2>
+
+        <pre>p<strong>,</strong> li {<br/>  ...<br/>}</pre>
+
+        <ul>
+          <li>used when two selectors share the same set of declarations</li>
+          <li>these rules would apply to all <code>p</code> and all <code>li</code> elements</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Descendant</h2>
+
+        <pre>footer p {<br/>  ...<br/>}</pre>
+
+        <ul>
+          <li>separated by a single space (<code> </code>)</li>
+          <li>matches the second element if it is an ancestor of the first</li>
+          <li>no limit to how deeply the second element can be nested</li>
+          <li>these rules would apply to only <code>p</code> elements inside <code>footer</code></li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Child</h2>
+
+        <pre>ol <strong>&gt;</strong> li {<br/>  ...<br/>}</pre>
+
+        <ul>
+          <li>separated by a greater than symbol (<code>&gt;</code>)</li>
+          <li>matches the second element if it is a <em>direct decendent</em> of the first</li>
+          <li>these rules would apply to only <code>li</code> elements which are direct decendants of <code>ol</code></li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>General Sibling</h2>
+
+        <pre>h2 <strong>~</strong> p {<br/>  ...<br/>}</pre>
+
+        <ul>
+          <li>separated by a tilde (<code>~</code>)</li>
+          <li>matches the second element if it follows the first element
+            <ul>
+              <li>does not necessarily have to be <em>immediately</em> after the first</li>
+            </ul>
+          </li>
+          <li>both must be children of the same parent element (hence, "siblings")</li>
+          <li>these rules would apply to <code>p</code> elements which follow <code>h2</code></li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Adjacent Sibling</h2>
+
+        <pre>h2 <strong>+</strong> p {<br/>  ...<br/>}</pre>
+
+        <ul>
+          <li>separated by a plus sign (<code>+</code>)</li>
+          <li>matches the second element <em>only</em> if it <em>immediately</em> follows the first element
+          <li>both must be children of the same parent element</li>
+          <li>these rules would apply to the first <code>p</code> element which follows <code>h2</code></li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Pseudo-classes</h2>
+
+        <pre>a<strong>:hover</strong> {<br/>  ...<br/>}</pre>
+
+        <ul>
+          <li>a keyword added to a selector which specifies state.</li>
+          <li>can select an element based on:
+            <ul>
+              <li>its relation in the document tree</li>
+              <li>browser history</li>
+              <li>content status</li>
+              <li>user interaction</li>
+            </ul>
+          </li>
+          <li>usually prefaced with a colon (<code>:</code>)</li>
+        </ul>
+
+        <p>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">MDN: CSS Pseudo-classes</a></p>
+      </section>
+
+
+      <section>
+        <h2>Example: Document Tree</h2>
+
+        <ul>
+          <li><code>:first-child</code>: first element of its siblings</li>
+          <li><code>:last-child</code>: last element of its siblings</li>
+          <li><code>:nth-child()</code>: nth element of its siblings
+            <ul>
+              <li>specify with a value, odd, even)</li>
+            </ul>
+          </li>
+          <li><code>:only-child</code>: element without any siblings</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Example: Browser History</h2>
+
+        <ul>
+          <li><code>:link</code>: a link not yet visited</li>
+          <li><code>:visited</code>: a link which has been visited by the user</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Example: Content Status</h2>
+
+        <ul>
+          <li><code>:checked</code>: checkbox, radio button or option is selected</li>
+          <li><code>:invalid</code>: input fails to validate</li>
+          <li><code>:read-only</code>: input not editable by the user</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Example: Interaction States</h2>
+
+        <ul>
+          <li><code>:hover</code>: a user hovers over the element</li>
+          <li><code>:active</code>: a user "activates" the element</li>
+          <li><code>:focus</code>: an input element receives focus</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Pseudo-Elements</h2>
+
+        <p>A keyword added to a selector which styles a specific part of the selected element.</p>
+
+        <ul>
+          <li><code>::before</code>: places content before an element</li>
+          <li><code>::after</code>: places content after an element</li>
+          <li><code>::first-letter</code>: impacts the first letter of a block element</li>
+          <li><code>::first-line</code>: impacts the first line of a block element</li>
+        </ul>
+      </section>
+
+
+
+    </main>
+  </body>
+</html>

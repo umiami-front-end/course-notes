@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: DOM Basics</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>DOM Basics</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>What is the Document Object Model (<abbr title="Document Object Model">DOM</abbr>)</h2>
+
+        <ul>
+          <li>a representation of the structure, details of a web page</li>
+          <li>each element represents a node</li>
+          <li>each element includes properties</li>
+          <li>an example of an application programming interface (<abbr title="application programming interface">API</abbr>)
+            <ul>
+              <li>how we interact with and modify a web page</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Examining the DOM</h2>
+
+        <p>In Firefox: Tools → Web Developer → Toggle Tools. Select Inspector.</p>
+
+        <ul>
+          <li>hover over code to see how the browser rendered an HTML element</li>
+          <li>use the element inspector icon (<img src="img/04-element-inspector.png" alt="element inspector" class="tiny align" />) to see the code</li>
+          <li>clicking an element shows the DOM path in the status bar</li>
+          <li>the "Rules" panel shows which CSS properties apply to the element</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Nodes</h2>
+
+        <p>There are four types of nodes which make up the DOM:</p>
+
+        <ul>
+          <li>document</li>
+          <li>element</li>
+          <li>attribute</li>
+          <li>text</li>
+        </ul>
+
+        <p>These have unique properties which can be used to interact with.</p>
+      </section>
+
+
+      <section>
+        <h2>Establishing Relationships</h2>
+
+        <p>Elements can have:
+
+        <ul>
+          <li>ancestors</li>
+          <li>a parent (only one)</li>
+          <li>children</li>
+          <li>siblings</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>The DOM Tree</h2>
+
+        <img src="img/04-dom-tree.svg" alt="DOM Tree" />
+      </section>
+
+
+      <section>
+        <h2><code>html</code></h2>
+
+        <ul>
+          <li>has no parents</li>
+          <li><code>head</code> and <code>body</code> are its children</li>
+          <li><code>head</code> is its first child</li>
+          <li><code>body</code> is its last child</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2><code>head</code></h2>
+
+        <ul>
+          <li><code>body</code> is its sibling</li>
+          <li><code>meta</code> is its first child
+            <ul>
+              <li><code>charset</code> is an attribute node</li>
+            </ul>
+          </li>
+          <li><code>title</code> is its last child
+            <ul>
+              <li>the text node (or content) is "My Web Site"</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2><code>body</code></h2>
+
+        <ul>
+          <li><code>head</code> is its sibling</li>
+          <li>has three children
+            <ul>
+              <li><code>h1</code> is its first child</li>
+              <li><code>p</code> (the first) is a child</li>
+              <li><code>p</code> (the second) is the last child</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><code>h1</code></h2>
+
+        <ul>
+          <li>is siblings with (both) <code>p</code></li>
+          <li>has one text node: "Hello!"</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2><code>p</code></h2>
+
+        <p>The first <code>p</code>:</p>
+
+        <ul>
+          <li>is siblings with <code>h1</code> and (the second) <code>p</code></li>
+          <li>has one text node: "Welcome to my web site."</li>
+        </ul>
+
+        <p>The second <code>p</code>:</p>
+
+        <ul>
+          <li>is siblings with <code>h1</code> and (the first) <code>p</code></li>
+          <li>has one text node: "Thank you for visiting."</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Nodes</h2>
+
+        <pre>&lt;p&gt;This has a &lt;a href="..."&gt;link&lt;/a&gt; inside.&lt;/p&gt;</pre>
+
+        <img src="img/04-dom-nodes.svg" alt="DOM Nodes" class="xl center" />
+      </section>
+
+
+      <section>
+        <h2>Examining DOM Nodes</h2>
+
+        <p>In the Web Developer Tools panel, select Console.</p>
+
+        <p><code>console.log</code> displays data about a given node.</p>
+
+        <pre>console.log(document);<br/>console.log(document.head);<br/>console.log(document.body);</pre>
+
+        <p>We'll see more use of this when we learn JavaScript.</p>
+      </section>
+    </main>
+  </body>
+</html>
