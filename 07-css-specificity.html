@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: CSS Specificity</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>CSS Specificity</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Inheritance</h2>
+
+        <p>Elements can inherit some properties of their parent. Text styling will always be inherited. Properties which affect a boxed area will not.</p>
+
+        <pre>p { color: red; }<br/>...<br/>&lt;p&gt;This is &lt;strong&gt;inherited&lt;/strong&gt;.&lt;/p&gt;</pre>
+
+        <p style="color:red;">This is <strong>inherited</strong>.</p>
+      </section>
+
+
+      <section>
+        <h2>Use inheritance to your advantage</h2>
+
+        <p>Rather than applying the same properties which are inherited to multiple selectors, apply the property to a common parent.</p>
+
+        <p><strong>Bad:</strong>
+
+        <pre>h1, h2, h3 ... p, li{<br/>  color: red;<br/>}</pre>
+
+        <p><strong>Good:</strong></p>
+
+        <pre>body {<br/>  color: red;<br/>}</pre>
+      </section>
+
+
+      <section>
+        <h2>The Cascade</h2>
+
+        <p>The cascade passes down information until it is overwritten by a rule with a greater weight.</p>
+
+        <p>CSS has a hierarchical system which assigns different weights based on:</p>
+
+        <ol>
+          <li>priority of source</li>
+          <li>specificity of selector</li>
+          <li>rule order</li>
+        </ol>
+      </section>
+
+
+      <section>
+        <h2>Priority of Source</h2>
+
+        <p>Where is the style written?</p>
+
+        <p>A browser prioritises the following from least to most important:</p>
+
+        <ol reversed="reversed">
+          <li>user-agent (browser) style sheet</li>
+          <li>reader style sheet</li>
+          <li>author style sheet (<em>that's us!</em> 😀)</li>
+          <li><code>!important</code> in author-written rules</li>
+          <li><code>!important</code> in reader-written rules</li>
+        </ol>
+      </section>
+
+
+      <section>
+        <h2>What is <code>!important</code>?</h2>
+
+        <p>The <code>!important</code> keyword modifies a declaration to overwrite a conflicting  declaration. It breaks the natural cascade.</p>
+      </section>
+
+
+      <section>
+        <h2>"I fight for the user!"</h2>
+
+        <p>Developers should <strong>never</strong> impose their design choices on users. This is why use of <code>!important</code> is a <strong>BAD</strong> practice.</p>
+
+        <p>This is why CSS considers a reader style sheet with <code>!important</code> among its rules the most important source.</p>
+
+        <p>For any code written in this class, do not use <code>!important</code>. However, your reading will address acceptable use cases. Be aware of these.</p>
+      </section>
+
+
+      <section>
+        <h2>Reader Style Sheets</h2>
+
+        <p>Users have the ability to write their own style sheet which applies their preferenes to every web site. Common use cases are related to improving accessibility:</p>
+
+        <ul>
+          <li>high contrast</li>
+          <li>increased font size</li>
+          <li>colors</li>
+          <li>aural preferences</li>
+        </ul>
+
+        <p>If an author rule overwrites a reader rule, a user can add <code>!important</code> to force their preferred style.</p>
+
+        <p>In the end, <strong>the user always wins</strong>.</p>
+      </section>
+
+      <section>
+        <h2>Creating a Reader Style Sheet</h2>
+
+        <p>For Firefox on macOS:</p>
+
+        <ol>
+          <li>Navigate to <code>~/Library/Application Support/Firefox/ Profiles/&lt;profile-id&gt;/chrome/</code>
+            <ul>
+              <li>If the "chrome" directory does not exist, create it.</li>
+            </ul>
+          </li>
+          <li>Create a new file, <code>userContent.css</code>.</li>
+          <li>Add your preferred styles.</li>
+          <li>Restart Firefox. Future changes will require Firefox to be restarted.</li>
+        </ol>
+      </section>
+
+
+      <section>
+        <h2>Specificity of Selector</h2>
+
+        <p>What two rules target the same element, but differently? Which rule wins?</p>
+
+        <p>The type of selector determines which rule applies. The more specific a selector, the greater the weight it holds. From least specific to most:</p>
+
+        <ol reversed="reversed">
+          <li>type selectors (individual elements)</li>
+          <li>class (pseudo-class, attribute) selectors</li>
+          <li>id selectors</li>
+          <li>inline styles</li>
+        </ol>
+      </section>
+
+
+      <section>
+        <h2>Example: Specificity</h2>
+
+        <pre>&lt;p id="unique"&gt;What color am I?&lt;/p&gt;<br/>...<br/>p {<br/>  color: red;<br/>}<br/><br/>p#unique {<br/>  color: blue;<br/>}</pre>
+
+        <p>An id selector is more specific than a type selector, therefore <code>p#unique</code> overwrites <code>p</code>.</p>
+      </section>
+
+
+      <section>
+        <h2>Calculating Specificity</h2>
+
+        <p>From left to right, the first box which is not a tie indicates the winning rule.</p>
+
+        <img src="img/07-calculate-specificity.svg" alt="calculate specificity" />
+      </section>
+
+
+      <section>
+        <h2>Example 1: Calculating Specificity</h2>
+
+        <pre>h1              [0] <strong>[0]</strong> [1]<br/>h1.special      [0] <strong>[1]</strong> [1]</pre>
+      </section>
+
+
+      <section>
+        <h2>Example 2: Calculating Specificity</h2>
+
+        <p>Note: <code>#special</code> is applied to a <code>p</code>.</p>
+
+        <pre>main section article p   <strong>[0]</strong> [0] [4]<br/>#special                 <strong>[1]</strong> [0] [0]</pre>
+      </section>
+
+
+      <section>
+        <h2>Example 3: Calculating Specificity</h2>
+
+        <pre>section#preamble article:first-child p > a  [1] <strong>[1]</strong> [4]<br/>#preamble .a.b.c.d a                        [1] <strong>[4]</strong> [1]</pre>
+      </section>
+
+
+      <section>
+        <h2>Rule Order</h2>
+
+        <p>What happens when two rules have the same weight?</p>
+
+        <p>Once all external stylesheets or embedded styles (via the <code>&lt;style&gt;</code> tag) are accounted for, <strong>the last rule listed wins</strong>.</p>
+
+        <pre>h1 {<br/>  font-size: 72px;<br/>  font-size: 144px;<br/>  font-size: 8px; <span>/* this wins! */</span><br/>}</pre>
+      </section>
+
+
+      <section>
+        <h2>Use rule order to your advantage</h2>
+
+        <p>When a browser doesn't understand a property, it ignores it. As browsers add new properties, it's possible to establish fallbacks for other browsers which do not understand the latest and greatest!</p>
+
+        <pre>nav {<br/>  position: fixed;<br/>  position: sticky; <span>/* see: <a href="https://caniuse.com/#feat=css-sticky">caniuse</a> */</span><br/>}</pre>
+
+        <p>This is an example of <strong>progressive enhancement!</strong></p>
+      </section>
+    </main>
+  </body>
+</html>

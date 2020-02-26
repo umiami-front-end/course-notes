@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: CSS Units</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>CSS Units</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>CSS Units</h2>
+
+        <p>When it comes to defining measured values in CSS, there are several options designers can rely on. These can be grouped into two categories:</p>
+
+        <p><strong>Absolute</strong> units have real-world equivalents.</p>
+
+        <p><strong>Relative</strong> units are based on the size of something else.</p>
+      </section>
+
+
+      <section>
+        <h2>Absolute Units</h2>
+
+        <ul>
+          <li>inches (<code>in</code>)</li>
+          <li>centimeters (<code>cm</code>)</li>
+          <li>millimeters (<code>mm</code>)</li>
+          <li>1/4 millimeter (<code>q</code>)</li>
+          <li>points (<code>pt</code>)
+            <ul>
+              <li>1/72 inch</li>
+            </ul>
+          </li>
+          <li>picas (<code>pc</code>)
+            <ul>
+              <li>12 points or 1/6 inch</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Using Absolute Units</h2>
+
+        <p>Absolute units are for print and would <em>only</em> be used in a print stylesheet. In screen (web) design, these are not used.</p>
+
+        <p>(So, rather than use a tool like Adobe InDesign to lay out a document, it's technically possible to do it using HTML and CSS!)</p>
+      </section>
+
+
+      <section>
+        <h2>Relative Units</h2>
+
+        <ul>
+          <li>ems (<code>em</code>)</li>
+          <li>root ems (<code>rem</code>)</li>
+          <li>viewport width (<code>vw</code>)</li>
+          <li>viewport height (<code>vh</code>)</li>
+          <li>viewport minimum (<code>vmin</code>, <code>vm</code>)</li>
+          <li>x-height (<code>ex</code>)</li>
+          <li>zero-width (<code>ch</code>)</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>What are pixels?</h2>
+
+        <p>A little bit of both.</p>
+
+        <p>The CSS3 specification defines a pixel as 96 pixels per inch, so this qualifies <code>px</code> as an absolute unit. <em>However</em>, this only defines a reference.</p>
+
+        <p>Screen resolutions are not always consistent with this reference and vary greatly depending on the device. (See: <a href="http://screensiz.es/">screensiz.es</a>)</p>
+      </section>
+
+
+      <section>
+        <h2>Pixels</h2>
+
+        <p>Pros:</p>
+
+        <ul>
+          <li>allows for very precise control of design</li>
+          <li>what you see is what you get (WYSIWYG)</li>
+        </ul>
+
+        <p>Cons:</p>
+
+        <ul>
+          <li>poor choice for fluid, responsive design</li>
+          <li>not ideal for resizing text, designs</li>
+        </ul>
+
+        <p>Syntax:</p>
+
+        <p><code>property-name: <strong>30px</strong></code></p>
+      </section>
+
+      <section>
+        <h2>And percentages?</h2>
+
+        <p>Percentages (<code>%</code>) are not a formal unit, but are a common way of specifying measurements in CSS.</p>
+
+        <p>The "unit" is predominantly used for layout and are relative to the size of the containing element. This assures page layouts remain proportional.</p>
+      </section>
+
+
+      <section>
+        <h2>Percentage</h2>
+
+        <p>Pros:</p>
+
+        <ul>
+          <li>Most HTML default values are percentage based
+            <ul>
+              <li>h1 is 200% of the default font size</li>
+              <li>block elements take up 100% of the parent element's width</li>
+            </ul>
+          </li>
+          <li>great for fluid, responsive design layouts</li>
+        </ul>
+
+        <p>Cons:</p>
+
+        <ul>
+          <li>requires calculation based on parent font size</li>
+          <li>can be difficult to determine pixel equivalent without tools</li>
+          <li>very precise calculations can disrupt layout</li>
+        </ul>
+
+        <p>Syntax</p>
+
+        <p><code>property-name: <strong>90%</strong></code></p>
+      </section>
+
+
+      <section>
+        <h2>ems</h2>
+
+        <ul>
+          <li>origin in traditional typography</li>
+          <li>based on the width of a capital M
+            <ul>
+              <li>if the font size is 16px, an em is 16px</li>
+            </ul>
+          </li>
+          <li>relative to <em>current</em> font size</li>
+          <li>no relation to <code>&lt;em&gt;</code></li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>ems (continued)</h2>
+
+        <p>Pros:</p>
+
+        <ul>
+          <li>great for fluid, responsive design fonts, layouts, whitespace</li>
+          <li>once a base font is set, everything can be relative (to the parent)</li>
+        </ul>
+
+        <p>Cons:</p>
+
+        <ul>
+          <li>requires calculation based on parent font size</li>
+          <li>very precise calculations can disrupt layout</li>
+          <li>inherits a parent's property
+            <ul>
+              <li>more to keep track of</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p>Syntax</p>
+
+        <pre>property-name: <strong>2em;</strong><br/>/* 32px, if base font is 16px */</pre>
+
+      </section>
+
+
+      <section>
+        <h2>Root ems</h2>
+
+        <ul>
+          <li>the same as an em, but based on root font size (not parent)</li>
+          <li>the "root" is the element node <code>html</code>
+            <ul>
+              <li>a browser sets the default size for html at 16px</li>
+          </li>
+          <li>does not work in IE8* or earlier</li>
+        </ul>
+
+        <p><small>* support for IE8 ended in 2016</small></p>
+      </section>
+
+
+      <section>
+        <h2>Root ems (continued)</h2>
+
+        <p>Pros:</p>
+
+        <ul>
+          <li>great for fluid, responsive design fonts, layouts, whitespace</li>
+          <li>a little more predictable than percentage or ems</li>
+        </ul>
+
+        <p>Cons:</p>
+
+        <ul>
+          <li>requires calculation</li>
+          <li>can still result in precise, layout-disrupting calculations</li>
+          <li>older browsers (IE 8 or earlier) lack support
+            <ul>
+              <li>but Microsoft dropped support in 2016</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p>Syntax</p>
+
+        <pre>property-name: <strong>1.25rem;</strong><br/>/* 20px if base font is 16px */</pre>
+      </section>
+
+
+      <section>
+        <h2>Viewport width &amp; height</h2>
+
+        <ul>
+          <li>units relative to the browser viewport</li>
+          <li>equal to 1/100th of the viewport width/height</li>
+          <li>useful for keeping elements the full width/height of a viewport</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Converting Between Units</h2>
+
+        <p>Fixed units — pixels — are great when creating create 'pixel-perfect' designs. What you see is what you get.</p>
+
+        <p>But modern designs need to be fluid and responsive for different screens and devices. Using pixels can hinder or complicate our work.</p>
+
+        <p>How can we convert our designs from pixels to relative measurements?</p>
+      </section>
+
+
+      <section>
+        <h2>Math!</h2>
+
+        <p class="emoji">😭</p>
+
+        <p>It's simple math, really.</p>
+      </section>
+
+
+      <section>
+        <h2>Browser Defaults</h2>
+
+        <p>Modern browsers have a default font size of 16 pixels. But...</p>
+
+        <p>What if a user adjusts these settings?</p>
+
+        <p>What if a browser maker changes the default value?*</p>
+
+        <p>Using relative units, measurements will still be proportional to the newly defined font size.</p>
+
+        <p><small>* Netscape, Internet Explorer used to have default sizes of 14px.</small></p>
+      </section>
+
+
+      <section>
+        <h2>Converting <code>px</code> to <code>%</code></h2>
+
+        <p>Formula:</p>
+
+        <p>(<var>size in pixels</var> / <var>parent size in pixels</var>) * 100 = percentage</p>
+
+        <p>Examples:</p>
+
+        <pre>(12px / 16px) * 100 = 75%<br/>(36px / 16px) * 100 = 225%<br/>(48px / 16px) * 100 = 300%</pre>
+
+        <p>When using percentage, the parent size is based on the <em>immediate parent</em>, the root.</p>
+
+        <p>If you are calculating the font size for an element whose parent (or ancestor) also has a font size specified, you must account for it in your calculations.</p>
+      </section>
+
+
+      <section>
+        <h2>Converting <code>px</code> to <code>em</code></h2>
+
+        <p>Formula:</p>
+
+        <p><var>size in pixels</var> / <var>parent size in pixels</var> = ems</p>
+
+        <p>Examples:</p>
+
+        <pre>12px / 16px = .75em<br/>36px / 16px = 2.25em<br/>48px / 16px = 3em</pre>
+
+        <p>When using ems, the parent size is based on the <em>immediate parent</em>, not the root.</p>
+
+        <p>If you are calculating the font size for an element whose parent (or ancestor) also has a font size specified, you must account for it in your design.</p>
+      </section>
+
+
+      <section>
+        <h2>Converting <code>px</code> to <code>rem</code></h2>
+
+        <p>Formula:</p>
+
+        <p><var>size in pixels</var> / <var>root font size in pixels</var> = root ems</p>
+
+        <p>Examples:</p>
+
+        <pre>12px / 16px = .75rem<br/>36px / 16px = 2.25rem<br/>48px / 16px = 3rem</pre>
+
+        <p>When using root ems, the parent size is based on the <code>font-size</code> property set in the css block with <code>html</code> as its selector.</p>
+      </section>
+
+
+      <section>
+        <h2>When do I use...?</h2>
+
+        <p>There is no set standard for using a unit in a specific situation, every time. Some designers pick one and use it throughout. Many use a mix. Some good use cases:</p>
+
+        <p>Use <strong>percentages</strong> and <strong>viewport width/height</strong> for dimensions related to page layouts.</p>
+
+        <p>Use <strong>rems</strong> and <strong>ems</strong> for typography, whitespace dimensions. These are sometimes used for layouts, too.</p>
+
+        <p>Use <strong>pixels</strong> for borders.</p>
+      </section>
+
+
+      <section>
+        <h2>Tips</h2>
+
+        <p>When you start a design, using pixels will help you see precisely how your designs are rendered. Convert fixed units to fluid ones in a later iteration of your design.</p>
+
+        <p>Once you become familiar with using relative units, try using them over pixels in specific situations (i.e. fonts, margin/padding, etc.).</p>
+
+        <p>When making conversions, be sure you leave a comment in your CSS as a reminder of your calculation.</p>
+
+        <pre>property-name: 1.875em; /* 30px / 16px */</pre>
+      </section>
+
+    </main>
+  </body>
+</html>
