@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: Print &amp; Responsive Design</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>Print &amp; Responsive Design</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Thinking About Media</h2>
+
+        <p>When we consider different media, there are differences which set each apart from the other.</p>
+
+        <p>How might we compare...</p>
+
+        <ul>
+          <li>print</li>
+          <li>radio</li>
+          <li>television</li>
+          <li>web</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>From Web to Print</h2>
+
+        <p>Let's pick a web site and break it down.</p>
+      </section>
+
+
+      <section>
+        <h2>Web to Print: Considerations</h2>
+
+        <ul>
+          <li>what kind of printer?</li>
+          <li>multimedia?</li>
+          <li>navigation?</li>
+          <li>typeface?</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Adjusting for Print</h2>
+
+        <ul>
+          <li>black and white</li>
+          <li>no backgrounds</li>
+          <li>consider use of a serif font</li>
+          <li>change to print units</li>
+          <li>set margins</li>
+          <li>remove multimedia</li>
+          <li>remove navigation</li>
+          <li>adjust links</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Adding a Print Style Sheet</h2>
+
+        <p>A print style sheet can be added to an HTML page using <code>&lt;link&gt;</code> or included in the external style sheet using <code>@media print</code>.</p>
+
+        <p>HTML:</p>
+
+        <pre>&lt;link href="print.css" <strong>media="print"</strong><br/>  rel="stylesheet" /&gt;</pre>
+
+        <p>CSS:</p>
+
+        <pre><strong>@media print</strong> {<br/> <span>/* css blocks */</span><br/>}</pre>
+
+        <p>It is important to identify the styles are for print, otherwise they may overwrite your screen styles.</p>
+      </section>
+
+
+      <section>
+        <h2>When do I use unit X?</h2>
+
+        <p>When the property will be displayed — borders, fonts — use <strong>points</strong>.</p>
+
+        <p>When the property is invisible — margin, padding — use <strong>inches</strong>, <strong>centimeters</strong> or <strong>millimeters</strong>. Choose one.</p>
+
+        <p>Be consistent in how it is applied in your design.</p>
+
+        <pre>@page { margin: 0.5in; }<br/>section { border: 1pt solid black; }</pre>
+      </section>
+
+
+      <section>
+        <h2>Links</h2>
+
+        <p>Links are unique to the web. Are these necessary in print?</p>
+
+        <p>The <code>href</code> attribute is the equivalent of providing a source. Think of it as the digital equivalent of a footnote.</p>
+      </section>
+
+
+      <section>
+        <h2>Displaying Links in Print</h2>
+
+        <p>By combining attribute selectors which match external links, the <code>:after</code> pseudo-element and content property, the value of <code>href</code> can be inserted after the text.</p>
+
+        <pre>a[href^=http]:after {<br/>  content: " (" attr(href) ") ";<br/>}</pre>
+
+        <p>Apple (https://apple.com/)</p>
+      </section>
+
+
+      <section>
+        <h2>Thinking About the Web</h2>
+
+        <p>The web can take on multiple forms, too.</p>
+
+        <p>How might we compare the web on...</p>
+
+        <ul>
+          <li>a (computer's) web browser</li>
+          <li>a mobile phone</li>
+          <li>a tablet</li>
+          <li>a screen reader</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Responsive Design</h2>
+
+        <p>Responsive design assures users receive the same content, regardless of device. It consists of:</p>
+
+        <ul>
+          <li>CSS media queries</li>
+          <li>flexible grid</li>
+          <li>flexible images</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>The Mobile Viewport</h2>
+
+        <p>Mobile devices render a (non-mobile) web page with a width of 980 pixels — as if it were on a desktop or laptop — then shrink it to fit the device's screen dimensions.</p>
+
+        <p>This generally makes standard web pages difficult to use.</p>
+      </section>
+
+
+      <section>
+        <h2>Defining the Viewport</h2>
+
+        <p>The <code>meta</code> tag accepts an attribute, <code>viewport</code>*. This allows us to identify a device's screen dimensions.</p>
+
+        <pre>&lt;meta name="viewport"<br/>  content="width=device-width; initial-scale=1;" /&gt;</pre>
+
+        <p><small>* This is not actually a W3C standard! W3C has proposed a CSS-based <code>@viewport</code> statement, but browser support is poor.</small></p>
+      </section>
+
+
+      <section>
+        <h2>A Note About <code>maximum-scale</code></h2>
+
+        <p>Some web tutorials suggest including <code>maximum-scale=1</code> in the <code>viewport</code> attribute. Do not include this value.</p>
+
+        <p>It hinders the ability for a user to pinch zoom your web site, making it less accessible.</p>
+      </section>
+
+
+      <section>
+        <h2>Adding Mobile Styles</h2>
+
+        <p>When including mobile styles, they can be in a separate style sheet or at the bottom of the existing style sheet. Identify these as "screen" styles.</p>
+
+        <p>Add mobile styles <em>after</em> web styles. Take advantage of inheritance.</p>
+
+        <p>HTML:</p>
+
+        <pre>&lt;link href="mobile.css" media="screen"<br/>  rel="stylesheet" /&gt;</pre>
+
+        <p>CSS:</p>
+
+        <pre>@media (condition) {<br/>  <span>/* css blocks */</span><br/>}</pre>
+      </section>
+
+
+      <section>
+        <h2><code>@media</code> queries</h2>
+
+        <p><code>@media</code> queries apply styles targeting specific conditions.</p>
+
+        <p>The <code>max-width</code> property is often used for mobile design.</p>
+
+        <pre>@media (max-width: 640px) {<br/>  <span>/* css blocks */</span><br/>}</pre>
+      </section>
+
+
+      <section>
+        <h2>Applying Breakpoints</h2>
+
+        <p>At what widths should a new <code>@media</code> query be created?</p>
+
+        <blockquote>
+          <p>"Start with the small screen first, then expand until it looks like 💩. Time for a breakpoint!"</p>
+          <p>— Stephen Hay</p>
+        </blockquote>
+
+        <p>Let the content and design drive the need for breakpoints.</p>
+      </section>
+
+
+      <section>
+        <h2>Starting (Break)points</h2>
+
+        <p>At what point does a phone design look bad on a tablet? Or a laptop design look bad on a desktop?</p>
+
+        <p>Another approach is to start with a breakpoint based on a common size for a device and adjust accordingly.</p>
+
+        <ul>
+          <li>Phone (portrait): 400 pixels</li>
+          <li>Tablet (portrait) / Phone (landscape): 768 pixels</li>
+          <li>Tablet (landscape) / Laptop / Desktop: 960 pixels</li>
+          <li>Large Screen: 1280 pixels</li>
+        </ul>
+
+        <p><small>Consider adjusting these to relative units.</small></p>
+      </section>
+
+
+      <section>
+        <h2>Flexible Grids</h2>
+
+        <ul>
+          <li>rely on the natural flow of content</li>
+          <li>utilize flexbox, grid properties for layout</li>
+          <li>use relative units</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Flexible Images</h2>
+
+        <ul>
+          <li><code>img { width: 100%; }</code></li>
+          <li><code>&lt;picture&gt;</code></li>
+          <li>use svg when possible</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Responsive Focus</h2>
+
+        <p>When designing responsively, the elements which are impacted most include:</p>
+
+        <ul>
+          <li>order of content</li>
+          <li>typography</li>
+          <li>navigation</li>
+          <li>layout</li>
+          <li>images</li>
+          <li>tables</li>
+          <li>forms</li>
+          <li>multimedia</li>
+          <li>interactive features</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>How to Test Responsive Design</h2>
+
+        <ul>
+          <li>browser tools</li>
+          <li>device emulators</li>
+          <li>online services (i.e. <a href="http://browserstack.com/">BrowserStack</a>)</li>
+          <li>actual devices</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
