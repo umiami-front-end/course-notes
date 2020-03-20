@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: JavaScript Syntax</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>JavaScript Syntax</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Syntax</h2>
+
+        <p>A set of rules which define how a computer language should be written.</p>
+      </section>
+
+
+      <section>
+        <h2>Comments</h2>
+
+        <p>Single-line comments are preceded by a double slash.</p>
+
+        <pre>// Comments may appear at the start of a line or...<br/>var color = "blue";  // ...after a piece of code.</pre>
+
+        <p>Multi-line comments are enclosed with slashes and stars (like in CSS).</p>
+
+        <pre>/* This comment<br/>   appears on<br/>   three lines. */</pre>
+      </section>
+
+
+      <section>
+        <h2>Case Sensitivity</h2>
+
+        <p>JavaScript is case sensitive.</p>
+
+        <p><code>myCat</code> is not the same as <code>mycat</code> or <code>MYCAT</code>.</p>
+      </section>
+
+
+      <section>
+        <h2>Semicolon</h2>
+
+        <p>A semicolon (;) is used to end each statement.</p>
+
+        <pre>x = 3 + 2;</pre>
+
+        <p>Omission of a semicolon may result in an error.</p>
+      </section>
+
+
+      <section>
+        <h2>Quotes</h2>
+
+        <p>Quotes (single or double) distinguish strings from variables, functions, keywords and reserved words.</p>
+
+        <p><code>'Hello!'</code> is a string.</p>
+
+        <p><code>"Hello, world!"</code> is also a string.</p>
+
+        <p><code>helloWorld</code> is not a string. It may be a variable or function.</p>
+      </section>
+
+
+      <section>
+        <h2>Parentheses</h2>
+
+        <p>Parentheses enclose a parameter to a function; an argument to a method; or are used to change the order of operations in arithmetic expressions.</p>
+
+        <pre>function sayHello(name) { ... }<br/><br/>document.write("Hello!");<br/><br/>var solution = ((4 + 76) / 3);</pre>
+      </section>
+
+
+      <section>
+        <h2>Curly Braces</h2>
+
+        <p>Curly braces (<code>{ }</code>) group statements into compound statements or "blocks" such as functions or dependent statements.</p>
+
+        <pre>var x = 2;<br/>if (x == 2) {<br/>  document.write("the variable x holds");<br/>  document.write(x);<br/>};</pre>
+      </section>
+
+
+      <section>
+        <h2>Period</h2>
+
+        <p>A period or "dot" (and word following) is used to denote a property or method of an object.</p>
+
+        <pre>document.write("hello");<br/>// the method "write" is of the object "document"</pre>
+      </section>
+
+
+      <section>
+        <h2>Reserved words</h2>
+
+        <p>All programming languages have reserved words which describe built-in functions, objects, properties, methods, etc.</p>
+
+        <p>For example: <code>break</code>, <code>else</code>, <code>for</code>, <code>if</code> and <code>while</code> are among the reserved words in JavaScript. These words cannot be used to declare variables, functions, methods, etc.</p>
+
+        <p>Once you are "fluent" in a programming language, these words become familiar. Until then, you may need to refer to resource for a list of reserved words.</p>
+
+        <p>See: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords">Mozilla Developers Network: JavaScript Reserved Words</a></p>
+      </section>
+
+
+      <section>
+        <h2>Variables &amp; Constants</h2>
+
+        <ul>
+          <li>containers which hold data</li>
+          <li>have no value until one is assigned</li>
+          <li>must have a unique name</li>
+          <li>can be referenced to retrieve its value</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Declaring Variables</h2>
+
+        <p>When we create a variable, preface the name with <code>var</code> (or <code>let</code>).</p>
+
+        <p>Once a variable exists, we do not need to include <code>var</code> (or <code>let</code>) in future references.</p>
+      </section>
+
+
+      <section>
+        <h2>Variables Syntax</h2>
+
+        <ul>
+          <li>must start with a letter, dollar sign ($) or underscore (_)</li>
+          <li>may not contain a dash (-) or period (.)</li>
+          <li>are case sensitive</li>
+          <li>should be descriptive</li>
+          <li>should be written in camelCase* (<code>var lowerCapsCaps;</code>)</li>
+          <li>may not contain keywords or reserved words</li>
+        </ul>
+
+        <p>* underscores are acceptable, but camelCase is preferred JavaScript style</p>
+      </section>
+
+
+      <section>
+        <h2>Constants</h2>
+
+        <ul>
+          <li>a variable whose value will not change</li>
+          <li>identified in human-readable form by using ALLCAPS</li>
+          <li>returns an error if there is an attempt to change its value</li>
+        </ul>
+
+        <pre>const PI = 3.14;</pre>
+      </section>
+    </main>
+  </body>
+</html>
