@@ -66,7 +66,7 @@
 
         <p>Strings may be concatenated (linked together).</p>
 
-        <pre>"Hello, " + "world!" // "Hello, world!"</pre>
+        <pre>"Hello, " + "world!"; <span>// "Hello, world!"</span></pre>
       </section>
 
 
@@ -75,7 +75,7 @@
 
         <p><code>null</code> is an object which has no value on purpose. It is not false or empty.</p>
 
-        <pre>var dev = null;  // null<br/>dev = false;     // false<br/>dev = "";        // ""</pre>
+        <pre>var dev = null;  <span>// null</span><br/>dev = false;     <span>// false</span><br/>dev = "";        <span>// ""</span></pre>
       </section>
 
 
@@ -84,7 +84,7 @@
 
         <p>Something is <code>undefined</code> when it exists, but contains no value.</p>
 
-        <pre>var cats;<br/>cats;  // undefined</pre>
+        <pre>var cats;<br/>cats;  <span>// undefined</span></pre>
       </section>
 
 
@@ -119,7 +119,7 @@
 
         <p>The assignment operator (<code>=</code>) assigns a value to a variable.</p>
 
-        <pre>var room = 2054;<br/>room;  // 2054;</pre>
+        <pre>var room = 2054;<br/>room;  <span>// 2054</span></pre>
       </section>
 
 
@@ -145,7 +145,7 @@
 
         <p>If you need to change this, enclose the calculation in parentheses ( <code>( )</code> ).</p>
 
-        <pre>20 + 30 * 10     // 320<br/>(20 + 30) * 10   // 500</pre>
+        <pre>20 + 30 * 10;     <span>// 320</span><br/>(20 + 30) * 10;   <span>// 500</span></pre>
       </section>
 
 
@@ -186,7 +186,7 @@
 
         <p>The concatenation (<code>+</code>) operator to combines strings.</p>
 
-        <pre>"Hello " + "world!"  // Hello, world!</pre>
+        <pre>"Hello " + "world!";  <span>// Hello, world!</span></pre>
 
         <p><small>(Uh, didn't we use + to add numbers?)</small></p>
       </section>
@@ -199,7 +199,7 @@
 
         <p>Let's prove this:</p>
 
-        <pre>typeof 3;    // number!<br/>typeof "3";  // string!</pre>
+        <pre>typeof 3;    <span>// number!</span><br/>typeof "3";  <span>// string!</span></pre>
       </section>
 
 
@@ -208,15 +208,15 @@
 
         <p>If we enclose numbers in quotes, JavaScript will treat them as strings.</p>
 
-        <pre>"1" + "2"  // "12"</pre>
+        <pre>"1" + "2";  <span>// "12"</span></pre>
 
         <p>If we concatenate a number with a string, the number becomes part of the string.</p>
 
-        <pre>2018 + " Miami Hurricanes"  // "2018 Miami Hurricanes"</pre>
+        <pre>2018 + " Miami Hurricanes";  <span>// "2018 Miami Hurricanes"</span></pre>
 
         <p>Try these!</p>
 
-        <pre>"10" - "5"  // ?!<br/>"10" * "5"  // ?!?!</pre>
+        <pre>"10" - "5";  <span>// What?!</span><br/>"10" * "5";  <span>// WHAT?!?!</span></pre>
 
         <p><small>(Just one example why JavaScript is regarded as quirky.)</small></p>
       </section>
@@ -227,7 +227,7 @@
 
         <p>If we 'calculate' strings, the result is <code>NaN</code> or "Not a Number."</p>
 
-        <pre>"ten" - "five"  // NaN</pre>
+        <pre>"ten" - "five";  <span>// NaN</span></pre>
       </section>
 
 
@@ -256,7 +256,7 @@
 
         <p>Using strict equal to (<code>===</code>) or strict not equal to (<code>!==</code>) compares the value <em>and</em> data type.</p>
 
-        <pre>"10" === 10    // false<br/>"10" !== "10"  // false<br/>10 === 10      // true</pre>
+        <pre>"10" === 10;    <span>// false</span><br/>"10" !== "10";  <span>// false</span><br/>10 === 10;      <span>// true</span></pre>
       </section>
 
 
@@ -280,7 +280,7 @@
 
         <p>Both expressions/values must evaluate to true to return a true value.</p>
 
-        <pre>true && true    // true<br/>true && false   // false<br/>false && true   // false<br/>false && false  // false</pre>
+        <pre>true &amp;&amp; true;    <span>// true</span><br/>true &amp;&amp; false;   <span>// false</span><br/>false &amp;&amp; true;   <span>// false</span><br/>false &amp;&amp; false;  <span>// false</span></pre>
       </section>
 
 
@@ -289,7 +289,7 @@
 
         <p>One expression/value must evaluate to true to return a true value.</p>
 
-        <pre>true || true    // true<br/>true || false   // true<br/>false || true   // true<br/>false || false  // false</pre>
+        <pre>true || true;    <span>// true</span><br/>true || false;   <span>// true</span><br/>false || true;   <span>// true</span><br/>false || false;  <span>// false</span></pre>
       </section>
 
 
@@ -298,7 +298,7 @@
 
         <p>The opposite value is returned.</p>
 
-        <pre>!true   // false<br/>!false  // true</pre>
+        <pre>!true;   <span>// false</span><br/>!false;  <span>// true</span></pre>
       </section>
 
     </main>
