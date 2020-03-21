@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: JavaScript Objects</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>JavaScript Objects</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Objects</h2>
+
+        <p>A collection of...
+
+        <ul>
+          <li>properties (descriptions)</li>
+          <li>methods (actions)</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>How can we describe a cat?</h2>
+
+        <img src="img/14-quorra.jpg" alt="Quorra" />
+      </section>
+
+
+      <section>
+        <h2>Cat: Descriptions and Actions</h2>
+
+        <p>We might describe a cat by its:</p>
+
+        <ul>
+          <li>coat</li>
+          <li>number of paws</li>
+          <li>colors</li>
+          <li>personality (shy? friendly? bites?)</li>
+        </ul>
+
+        <p>A cat also acts in the following ways:</p>
+
+        <ul>
+          <li>says "Meow"</li>
+          <li>purrs</li>
+          <li>pounces</li>
+          <li>sleeps</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Quorra (as a JavaScript Object)</h2>
+
+        <pre>var quorra = {<br/><br/>  <span>// properties</span><br/>  species: "cat",<br/>  paws: 4,<br/>  coat: "soft",<br/>  colors: ["brown", "gray", "black", "white"],<br/>  shy: true,<br/>  friendly: true,<br/>  bites: false,<br/><br/>  <span>// a method</span><br/>  speak: function() {<br/>    return 'Meow!'<br/>  }<br/>}</pre>
+      </section>
+
+
+      <section>
+        <h2>Built-In Objects</h2>
+
+        <p>Each time a data type is created, JavaScript automatically associates it with specific properties and methods.</p>
+
+        <p>We have already seen:</p>
+
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></li>
+        </ul>
+
+        <p>See: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects">MDN: Standard built-in objects</a></p>
+      </section>
+
+      <section>
+        <h2>Object Literal</h2>
+
+        <ul>
+          <li>defined by key-value pairs
+            <ul>
+              <li>keys are like variables</li>
+              <li>keys end with a colon (<code>:</code>)</li>
+              <li>values end with a comma</li>
+              <li>values may be any data type</li>
+            </ul>
+          </li>
+          <li>pairs are placed within curly brackets (<code>{}</code>)</li>
+          <li>pairs may be inline or on individual lines</li>
+          <li>separated by commas</li>
+          <li>last pair does not require a comma</li>
+        </ul>
+
+        <pre>var car = {<br/>  make: "Chevrolet",<br/>  model: "Camaro",<br/>  year: 2016<br/>}</pre>
+      </section>
+
+
+      <section>
+        <h2>Object Constructor</h2>
+
+        <p>A new object is created using <code>new Object();</code>.</p>
+
+        <p>Key-value pairs are added using dot notation on the variable (to append the property/method name). The value is added using the assignment operator.</p>
+
+        <pre>var car = new Object();<br/>car.make = "Chevrolet";<br/>car.model = "Camaro";<br/>car.year = 2016;</pre>
+      </section>
+
+
+      <section>
+        <h2>Accessing Object Items</h2>
+
+        <p>An object's properties or methods may using either bracket or dot notation.</p>
+
+        <p>While you learn, you may want to use bracket notation since it is also used when accessing array values. (You cannot access an array value using dot notation.)</p>
+      </section>
+
+
+      <section>
+        <h2>Bracket Notation</h2>
+
+        <p>Bracket notation uses the key to reference the value. The key should be enclosed in double quotes.</p>
+
+        <pre>car["make"]<br/>car["model"]<br/>car["year"]</pre>
+      </section>
+
+
+      <section>
+        <h2>Dot Notation</h2>
+
+        <p>Dot notation uses the key after a period to reference the value. The key should not be quoted.</p>
+
+        <pre>car.make<br/>car.model<br/>car.year</pre>
+      </section>
+
+
+      <section>
+        <h2>Changing Values</h2>
+
+        <p>To change the value of a property/method, simply reassign it a new value.</p>
+
+        <pre>car["model"] = "Corvette"</pre>
+      </section>
+
+
+      <section>
+        <h2>Deleting Keys</h2>
+
+        <p>If you want to delete a property/method:</p>
+
+        <pre>delete car.model</pre>
+      </section>
+    </main>
+  </body>
+</html>

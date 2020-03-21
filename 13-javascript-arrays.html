@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: JavaScript Arrays</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>JavaScript Arrays</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Arrays</h2>
+
+        <ul>
+          <li>stores an ordered list of values</li>
+          <li>values may be any data type (even other arrays or objects)</li>
+        </ul>
+
+        <pre>["cat", 25, true]</pre>
+      </section>
+
+
+      <section>
+        <h2>Array Literal</h2>
+
+        <ul>
+          <li>values are placed within brackets (<code>[]</code>)</li>
+          <li>values may be inline or on individual lines</li>
+          <li>separated by commas</li>
+          <li>last value does not require a comma</li>
+        </ul>
+
+        <pre>var lieDetector = [<br/>  true,<br/>  false,<br/>  false<br/>];</pre>
+      </section>
+
+
+      <section>
+        <h2>Array Constructor</h2>
+
+        <p>Values are provided as arguments to <code>Array()</code>. Values may also be placed on individual lines.</p>
+
+        <pre>var petStore = new Array("cats", "dogs", "fish");</pre>
+      </section>
+
+
+      <section>
+        <h2>Array Index</h2>
+
+        <p>Arrays are indexed. The index begins at 0 (zero).</p>
+
+        <pre>["cat", "dog", "fish"]</pre>
+
+        <table>
+          <tr>
+            <th>item</th>
+            <th>index value</th>
+          </tr>
+
+          <tr>
+            <td>cat</td>
+            <td>0</td>
+          </tr>
+
+          <tr>
+            <td>dog</td>
+            <td>1</td>
+          </tr>
+
+          <tr>
+            <td>fish</td>
+            <td>2</td>
+          </tr>
+        </table>
+      </section>
+
+
+      <section>
+        <h2>Array Length</h2>
+
+        <p>Since array items are indexed, we can also determine the size of an array.</p>
+
+        <pre>var petStore = ["cat", "dog", "fish"];<br/>petStore.length;  <span>// 3</pre>
+      </section>
+
+
+      <section>
+        <h2>Accessing Array Items</h2>
+
+        <p>We can access individual items in the array using bracket notation.</p>
+
+        <pre>var petStore = ["cat", "dog", "fish"];<br/>var num = 0;<br/><br/>petStore[0];    <span>// cat</span><br/>petStore[1];    <span>// dog</span><br/>petStore[2];    <span>// fish</span><br/><br/>petStore[num];  <span>// cat</span></pre>
+      </section>
+
+
+      <section>
+        <h2>The Last Item</h2>
+
+        <p>JavaScript does not provide an elegant way to return the last item of an array. We can create our own solution.</p>
+
+        <p>We know how to:</p>
+
+        <ul>
+          <li>determine array length</li>
+          <li>access an item in an array using bracket notation</li>
+          <li>work with integers and arithmetic operators</li>
+        </ul>
+
+        <p>Write a statement to select the last item in the <code>petStore</code> array.</p>
+
+        <!-- petStore[petStore.length - 1]; -->
+      </section>
+    </main>
+  </body>
+</html>

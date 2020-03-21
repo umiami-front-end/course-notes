@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: JavaScript Data Types &amp; Operators</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>JavaScript Data Types</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Primitive Data Types</h2>
+
+        <p>The most basic 'building blocks' which can be used in programming.</p>
+
+        <ul>
+          <li>Boolean</li>
+          <li>number</li>
+          <li>string</li>
+          <li>null</li>
+          <li>undefined</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Booleans</h2>
+
+        <p>There are only two Boolean values:</p>
+
+        <ul>
+          <li><code>true</code></li>
+          <li><code>false</code></li>
+        </ul>
+
+        <p>Booleans are common results of conditional tests. (i.e. "If <em>true</em>, do X; if <em>false</em>, do Y")</p>
+      </section>
+
+
+      <section>
+        <h2>Numbers</h2>
+
+        <p>If made it this far in academia, you should be familiar with these. 😁</p>
+
+        <ul>
+          <li>integers (1, 2, 3)</li>
+          <li>floating-point numbers (a.k.a. "floats") (1.0, 2.0, 3.0)</li>
+          <li>special numbers (Infinity, -Infinity, NaN)
+        </ul>
+
+        <p>Numbers are used in calculations, comparisons, counting, date/time.</p>
+      </section>
+
+
+      <section>
+        <h2>Strings</h2>
+
+        <p>Strings are a combination of characters which represent text or code.</p>
+
+        <p>Strings which represent text are enclosed in single or double quotes. (i.e. "string")</p>
+
+        <p>Strings may be concatenated (linked together).</p>
+
+        <pre>"Hello, " + "world!" // "Hello, world!"</pre>
+      </section>
+
+
+      <section>
+        <h2><code>null</code></h2>
+
+        <p><code>null</code> is an object which has no value on purpose. It is not false or empty.</p>
+
+        <pre>var dev = null;  // null<br/>dev = false;     // false<br/>dev = "";        // ""</pre>
+      </section>
+
+
+      <section>
+        <h2><code>undefined</code></h2>
+
+        <p>Something is <code>undefined</code> when it exists, but contains no value.</p>
+
+        <pre>var cats;<br/>cats;  // undefined</pre>
+      </section>
+
+
+      <section>
+        <h2><code>NaN</code></h2>
+
+        <p>NaN is a property which represents a value being "Not a Number". It is returned when Math or attempts to parse a number fail.</p>
+
+        <p>It is a wonderful example of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN">JavaScript's weirdness</a>.</p>
+      </section>
+
+
+      <section>
+        <h2>Working with Data Types</h2>
+
+        <p>Data by itself is useless. We must act on the data to process it.</p>
+
+        <p>JavaScript includes the following types of operators:
+
+        <ul>
+          <li>assignment</li>
+          <li>arithmetic</li>
+          <li>string</li>
+          <li>comparison</li>
+          <li>logical</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Assignment</h2>
+
+        <p>The assignment operator (<code>=</code>) assigns a value to a variable.</p>
+
+        <pre>var room = 2054;<br/>room;  // 2054;</pre>
+      </section>
+
+
+      <section>
+        <h2>Arithmetic</h2>
+
+        <ul>
+          <li>addition (<code>+</code>)</li>
+          <li>subtraction (<code>-</code>)</li>
+          <li>multiplication (<code>*</code>)</li>
+          <li>division (<code>/</code>)</li>
+          <li>modulo (<code>%</code>)</li>
+          <li>increment (<code>++</code>)</li>
+          <li>decrement (<code>--</code>)</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Order of Operation</h2>
+
+        <p>Programming has mathematical roots, so calculations follow Algebra's order of operation (multiplication, division before addition, subtraction).</p>
+
+        <p>If you need to change this, enclose the calculation in parentheses ( <code>( )</code> ).</p>
+
+        <pre>20 + 30 * 10     // 320<br/>(20 + 30) * 10   // 500</pre>
+      </section>
+
+
+      <section>
+        <h2>Arithmetic &amp; Assignment</h2>
+
+        <p>Arithmetic and assignment operators can be combined, creating a shortcut for modifying values.</p>
+
+        <ul>
+          <li>add and assign (<code>+=</code>)</li>
+          <li>subtract and assign (<code>-=</code>)</li>
+          <li>multiply and assign (<code>*=</code>)</li>
+          <li>divide and assign (<code>/=</code>)</li>
+          <li>modulus and assign (<code>%=</code>)</li>
+        </ul>
+
+        <p>These, too, are often used in loops when each step is greater/less than 1.</p>
+      </section>
+
+
+      <section>
+        <h2>Calculate &amp; Assign</h2>
+
+        <p>The long way:</p>
+
+        <pre>var x = 2;<br/>x = x * 2;<br/>x;</pre>
+
+        <p>The short way:</p>
+
+        <pre>var x = 2;<br/>x *= 2;<br/>x;</pre>
+
+        <p>These work the same way; use is a matter of preference.</p>
+      </section>
+
+
+      <section>
+        <h2>String</h2>
+
+        <p>The concatenation (<code>+</code>) operator to combines strings.</p>
+
+        <pre>"Hello " + "world!"  // Hello, world!</pre>
+
+        <p><small>(Uh, didn't we use + to add numbers?)</small></p>
+      </section>
+
+
+      <section>
+        <h2>Strings &amp; Numbers</h2>
+
+        <p>JavaScript is an untyped language, which means we never have to explicitly say what our data is. JavaScript knows 3 is a number and "3" is a string.</p>
+
+        <p>Let's prove this:</p>
+
+        <pre>typeof 3;    // number!<br/>typeof "3";  // string!</pre>
+      </section>
+
+
+      <section>
+        <h2>Numbers as Strings</h2>
+
+        <p>If we enclose numbers in quotes, JavaScript will treat them as strings.</p>
+
+        <pre>"1" + "2"  // "12"</pre>
+
+        <p>If we concatenate a number with a string, the number becomes part of the string.</p>
+
+        <pre>2018 + " Miami Hurricanes"  // "2018 Miami Hurricanes"</pre>
+
+        <p>Try these!</p>
+
+        <pre>"10" - "5"  // ?!<br/>"10" * "5"  // ?!?!</pre>
+
+        <p><small>(Just one example why JavaScript is regarded as quirky.)</small></p>
+      </section>
+
+
+      <section>
+        <h2>Strings Are Not Numbers</h2>
+
+        <p>If we 'calculate' strings, the result is <code>NaN</code> or "Not a Number."</p>
+
+        <pre>"ten" - "five"  // NaN</pre>
+      </section>
+
+
+      <section>
+        <h2>Comparison</h2>
+
+        <p>Comparison operators are used when our code makes decisions or loops.</p>
+
+        <p>When one value is compared to another, the return value is <code>true</code> or <code>false</code>.</p>
+
+        <ul>
+          <li>greater than (<code>&gt;</code>)</li>
+          <li>greater than or equal to (<code>&gt;=</code>)</li>
+          <li>less than (<code>&lt;</code>)</li>
+          <li>less than or equal to (<code>&lt;=</code>)</li>
+          <li>equal to (<code>==</code>)</li>
+          <li>not equal to (<code>!=</code>)</li>
+          <li>strict equal to (<code>===</code>)</li>
+          <li>strict not equal to (<code>!==</code>)</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Strict or Not?</h2>
+
+        <p>Using strict equal to (<code>===</code>) or strict not equal to (<code>!==</code>) compares the value <em>and</em> data type.</p>
+
+        <pre>"10" === 10    // false<br/>"10" !== "10"  // false<br/>10 === 10      // true</pre>
+      </section>
+
+
+      <section>
+        <h2>Logical</h2>
+
+        <p>Logical operators are used when our code makes decisions or loops.</p>
+
+        <p>Logical operators compare expressions and return <code>true</code> or <code>false</code> values.</p>
+
+        <ul>
+          <li>and (<code>&amp;&amp;</code>)</li>
+          <li>or (<code>||</code>)</li>
+          <li>not (<code>!</code>)</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>and</h2>
+
+        <p>Both expressions/values must evaluate to true to return a true value.</p>
+
+        <pre>true && true    // true<br/>true && false   // false<br/>false && true   // false<br/>false && false  // false</pre>
+      </section>
+
+
+      <section>
+        <h2>or</h2>
+
+        <p>One expression/value must evaluate to true to return a true value.</p>
+
+        <pre>true || true    // true<br/>true || false   // true<br/>false || true   // true<br/>false || false  // false</pre>
+      </section>
+
+
+      <section>
+        <h2>not</h2>
+
+        <p>The opposite value is returned.</p>
+
+        <pre>!true   // false<br/>!false  // true</pre>
+      </section>
+
+    </main>
+  </body>
+</html>
