@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: JavaScript Loops</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>Loops</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>What is a loop?</h2>
+
+        <p>A <em>loop</em> is a code block which repeats as long as a <code>true</code> condition is met.</p>
+      </section>
+
+
+      <section>
+        <h2>Infinite Loops</h2>
+
+        <p>An <em>infinite loop</em> is a loop which repeats without end. It holds up the program from continuing.</p>
+
+        <p>Always make sure your loops return a <code>false</code> value at some point.</p>
+      </section>
+
+
+      <section>
+        <h2>for loop</h2>
+
+        <p>A for loop is executes code a specific number of times.</p>
+
+        <pre>for (i = 0; i < 3; i++) {<br/>  console.log("Hello, world!");<br/>}</pre>
+
+        <p>The loop above will print "Hello, world!" to the console three times.</p>
+      </section>
+
+
+      <section>
+        <h2>for loop counter</h2>
+
+        <p>Within the parentheses next to the <code>for</code> keyword is a counter which tracks each time the loop runs.</p>
+
+        <pre>(i = 0; i < 3; i++)</pre>
+
+        <ul>
+          <li><code>i = 0</code> initializes our counter to start at 0.</li>
+          <li><code>i < 3</code> sets the condition to return true/false
+            <ul>
+              <li>when <code>i</code> is less than 3, the loop continues</li>
+              <li>when <code>i</code> is greater than or equal to 3, the loop stops</li>
+            </ul>
+          </li>
+          <li><code>i++</code> increments <code>i</code> after the statement inside the loop is executed</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>while loop</h2>
+
+        <p>A while loop is used when the number times a loop should execute is unknown. These are susceptible to becoming infinite loops; it is easy to forget incrementing the counter.</p></p>
+
+        <pre>i = 1;<br/><br/>while (i < 3) {<br/>  console.log("Greetings!");<br/>  i++;  <span>// do not forget me!</span><br/>}</pre>
+
+        <p>The loop above will print "Greetings!" to the console twice.</p>
+      </section>
+
+
+      <section>
+        <h2>do-while loop</h2>
+
+        <p>A do-while loop is used when a loop should execute <em>at least once</em>, even if a true condition is never met.</p>
+
+        <pre>var i = 1;<br/><br/>do {<br/>  console.log("Hi!");<br/>  i++;<br/>} while (i < 1);</pre>
+
+        <p>The loop above will print "Hi!" to the console once.</p>
+
+        <p>Note how the do-while loop tests to condition <em>after</em> the code block is executed.</p>
+      </section>
+
+
+      <section>
+        <h2>for vs. while</h2>
+
+        <p>If the amount of data to be received from an external source is unknown, use a while loop.</p>
+
+        <p>Examples of when to use a while loop instead of a for loop:</p>
+
+        <ul>
+          <li>user input is optional</li>
+          <li>an API</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2><code>break</code> &amp; <code>continue</code></h2>
+
+        <p>When control flow (if, if-else, switch-case) are included within a loop, it may be necessary to stop the loop — even if the counting condition we set initially is not met.</p>
+
+        <p>The <code>break</code> keyword forces the loop to quit.</p>
+
+        <p>The <code>continue</code> keyword tells the loop to carry on.</p>
+      </section>
+
+
+      <section>
+        <h2>Loops &amp; Arrays</h2>
+
+        <p>A common use of a loop is to process data in an array. This is called iteration.</p>
+
+        <p>Given an array of names, we might want to include each in a greeting.</p>
+
+        <pre>var names = ["Flynn", "Quorra", "Charlie"];</pre>
+
+        <p>This is the hard way of doing it:</p>
+
+        <pre>console.log("Hello, " + names[0]);<br/>console.log("Hello, " + names[1]);<br/>console.log("Hello, " + names[2]);</pre>
+      </section>
+
+
+      <section>
+        <h2>Iterating Over an Array</h2>
+
+        <p>How about this instead?</p>
+
+        <pre>var names = ["Flynn", "Quorra", "Charlie"];<br/>var i = 0;<br/>while (i < names.length) {<br/>  console.log("Hello, " + names[i]);<br/>  i++;<br/>}</pre>
+      </section>
+
+
+      <section>
+        <h2>Iteration Steps</h2>
+
+        <ol>
+          <li>Declare the array</li>
+          <li>Set a counter
+            <ul>
+              <li>Start at 0 since our array index begins at 0</li>
+            </ul>
+          </li>
+          <li>Set the condition
+            <ul>
+              <li>"While the counter is less than the number of items in the array..."</li>
+            </ul>
+          </li>
+          <li>Write a message which includes each name
+            <ul>
+              <li>Notice <code>i</code> is used to indicate which index of the array to call!</li>
+            </ul>
+          <li>Increment the counter</li>
+        </ol>
+      </section>
+
+
+      <section>
+        <h2>Iterating Over an Object</h2>
+
+        <p>It is also possible to iterate over an object.</p>
+
+        <p>The loop will execute once for each property of the object.</p>
+
+        <pre>var car = {<br/>  year: 2016,<br/>  make: "Chevrolet",<br/>  model: "Camaro"<br/>}<br/><br/>for (var property in car) {<br/>  document.write(car[property] + " ");<br/>}</pre>
+      </section>
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: JavaScript Control Flow</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>Control Flow</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Comparing Expressions</h2>
+
+        <p>Imagine we are a police officer using a script to figure out which drivers need to be pulled over.</p>
+
+        <pre>var driverSpeed = 50;<br/>var speedLimit = 65;<br/>driverSpeed >= speedLimit  <span>// false</span></pre>
+      </section>
+
+
+      <section>
+        <h2>Combining Expressions</h2>
+
+        <p>When testing two or more expressions, enclose them in parentheses and use a logic operator to return a final <code>true</code> or <code>false</code> value.</p>
+
+        <pre>var driverSpeed = 85;<br/>var speedLimit = 65;<br/>var workingTailLight = false;<br/><br/>(driverSpeed >= speedLimit) ||<br/>  (workingTailLight == false);  <span>// true, true</span></pre>
+      </section>
+
+
+      <section>
+        <h2>if statements</h2>
+
+        <p>An if statement checks a conditition.</p>
+
+        <p>If the return value is <code>true</code>, the statement(s) within the code block are executed. If the return value is <code>false</code>, nothing happens.</p>
+
+        <pre>var driverSpeed = 85;<br/>var speedLimit = 65;<br/><br/>if (driverSpeed >= speedLimit) {<br/>  console.log("Issue a ticket.");<br/>}</pre>
+      </section>
+
+
+      <section>
+        <h2>if-else statements</h2>
+
+        <p>What if we want something to happen when the return value is false?</p>
+
+        <p>An if-else statement, <code>true</code> will execute the statements in the first code block; <code>false</code> will execute statements in the last code block.</p>
+
+        <pre>if (driverSpeed >= speedLimit) {<br/>  console.log("Pull over, driver!");  <span>// true</span><br/>} else {<br/>  console.log("Eat another donut.");  <span>// false</span><br/>}</pre>
+      </section>
+
+
+      <section>
+        <h2>Multiple if-else statements</h2>
+
+        <p>We can also test a situation using multiple if-else statements.</p>
+
+        <pre>if (driverSpeed >= speedLimit) && (!workingTailLight) {<br/>  console.log("Issue a ticket.");<br/>} else if (workingTailLight == false) {<br/>  console.log("Issue a warning.");<br/>} else {<br/>  console.log("Eat another donut.");<br/>}</pre>
+      </section>
+
+
+      <section>
+        <h2>switch-case statements</h2>
+
+        <p>Multiple if-else statements can be coded as a switch-case statement.</p>
+
+        <pre>var color = prompt("Your favorite color is...");<br/><br/>switch (color) {<br/>  case 'red':<br/>    console.log("Red is fire.");<br/>    break;<br/><br/>  case 'yellow':<br/>    console.log("Yellow is sunshine.");<br/>    break;<br/><br/>  case 'green':<br/>    console.log("Green is nature.");<br/>    break;<br/><br/>  case 'blue':<br/>    console.log("Blue is water and sky.");<br/>    break;<br/><br/>  default:<br/>    console.log("Not feeling colorful today?");<br/>    break;<br/>}</pre>
+      </section>
+
+
+      <section>
+        <h2>switch-case anatomy</h2>
+
+        <p>The switch-case statement can be complex. Let's break down each part.</p>
+      </section>
+
+
+      <section>
+        <h2><code>switch</code></h2>
+
+        <pre>switch (condition) { }</pre>
+
+        <p>Begin the statement with the <code>switch</code> keyword followed by a condition in parentheses. The condition may be an expression or just a variable.</p>
+
+        <p>Curly brackets create a code block which surrounds the cases.</p>
+      </section>
+
+
+      <section>
+        <h2><code>case</code></h2>
+
+        <pre>case 'red':<br/>  console.log("Red is fire.");<br/>  break;</pre>
+
+        <p>There are three parts to specifying each <code>case</code>:
+
+        <ol>
+          <li><code>case</code> keyword, a value to match and a colon (<code>:</code>).</li>
+          <li>statements to be executed</li>
+          <li><code>break</code> statement to exit the switch-case when a match is found</li>
+        </ol>
+      </section>
+
+
+      <section>
+        <h2><code>default</code></h2>
+
+        <pre>default:<br/>  console.log("Not feeling colorful today?");<br/>  break;</pre>
+
+        <p>The <code>default</code> is the last 'case' in the code block which is executed if no match is found. A <code>break</code> is still required to exit the switch-case statement.</p>
+      </section>
+
+
+      <section>
+        <h2>switch-case benefits</h2>
+
+        <p>A switch-case statement is best used when:</p>
+
+        <ul>
+          <li>multiple conditions exist (4-5)</li>
+          <li>user input may vary</li>
+          <li>a default value is necessary</li>
+          <li>speed is essential</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
