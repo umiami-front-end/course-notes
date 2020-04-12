@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: Modifying the DOM</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>Modifying the DOM</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>JavaScript and the DOM</h2>
+
+        <p>JavaScript allows us to target a specific DOM node and modify it.</p>
+
+        <p>To do this, we always follow two steps:</p>
+
+        <ol>
+          <li>Access the element(s) to be changed</li>
+          <li>Change the element(s) children, attributes or text</li>
+        </ol>
+      </section>
+
+
+      <section>
+        <h2>Accessing Elements</h2>
+
+        <p>The DOM has built-in methods to target nodes.</p>
+
+        <ul>
+          <li><code>querySelector()</code></li>
+          <li><code>querySelectorAll()</code></li>
+          <li><code>getElementById()</code></li>
+          <li><code>getElementsByClassName()</code></li>
+          <li><code>getElementsByTagName()</code></li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2><code>querySelector()</code></h2>
+
+        <p>The <code>querySelector()</code> method takes a CSS selector as an argument to target the portion(s) of HTML to be modified.</p>
+
+        <p>It returns the first matching element.</p>
+
+        <pre>document.querySelector(".mammal");</pre>
+      </section>
+
+
+      <section>
+        <h2><code>querySelectorAll()</code></h2>
+
+        <p><code>querySelectorAll()</code> uses a CSS selector as an argument and returns all matching elements in an array.</p>
+
+        <pre>document.querySelectorAll(".mammal");</pre>
+      </section>
+
+
+      <section>
+        <h2>Older Methods</h2>
+
+        <p><code>getElementById()</code>, <code>getElementsByClassName()</code>, and
+        <code>getElementsByTagName()</code> are older methods which still work perfectly fine, but are limited to using an <code>id</code>, <code>class</code> or tag.</p>
+
+        <p>These do not support CSS-style selectors.</p>
+
+        <pre>document.getElementById("a");<br/>document.getElementByClassName("mammal");<br/>document.getElementByTagName("p");</pre>
+
+      </section>
+
+
+      <section>
+        <h2>Storing Queries for Later Use</h2>
+
+        <p>Nodes can be stored in a variable.</p>
+
+        <pre>var reptiles = document.querySelector(".reptile");</pre>
+
+        <p>Methods which return single results are stored as an <em>object</em>.</p>
+
+        <pre>var birds = document.querySelectorAll(".bird");</pre>
+
+        <p>Methods which return multiple results are stored as an <em>array of objects</em>.</p>
+      </section>
+
+
+      <section>
+        <h2>Traversing the DOM</h2>
+
+        <p>Once we have a node to work with, we can also move around and work with the elements related to node.</p>
+
+        <ul>
+          <li><code>parentNode</code></li>
+          <li><code>previousElementSibling</code></li>
+          <li><code>nextElementSibling</code></li>
+          <li><code>firstElementChild</code></li>
+          <li><code>lastElementChild</code></li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2><code>parentNode</code></h2>
+
+        <p>The <code>parentNode</code> method accesses the parent of a targeted element.</p>
+
+        <pre>var list = document.querySelector("#a");<br/>list.parentNode  <span>// returns 'ul'</span></pre>
+      </section>
+
+
+      <section>
+        <h2><code>previousElementSibling</code> &amp; <code>nextElementSibling</code></h2>
+
+        <p>The <code>previousElementSibling</code> and <code>nextElementSibling</code> methods access adjacent siblings of a targeted element.</p>
+
+        <pre>var bat = document.querySelector("#b");<br/>list.previousElementSibling  <span>// returns li#a' (alligator)</span><br/>list.nextElementSibling  <span>// returns 'li#c' (cat)</span></pre>
+      </section>
+
+
+      <section>
+        <h2><code>firstElementChild</code> &amp; <code>lastElementChild</code></h2>
+
+        <p>The <code>firstElementChild</code> and <code>lastElementChild</code> methods access the first and last child of a target element.</p>
+
+        <pre>var list = document.querySelector("ul");<br/>list.firstElementChild  <span>// returns li#a (alligator)</span><br/>list.lastElementChild  <span>// returns li#f (falcon)</span></pre>
+      </section>
+
+
+      <section>
+        <h2>Siblings and Children may make you cry</h2>
+
+        <p>When traversing the DOM, a browser sees everything including whitespace. The browser treats whitespace as part of the DOM.</p>
+
+        <p>Similar (but older) methods to the ones previously described exist:</p>
+
+        <ul>
+          <li><code>previousSibling</code></li>
+          <li><code>nextSibling</code></li>
+          <li><code>firstChild</code></li>
+          <li><code>lastChild</code></li>
+        </ul>
+
+        <p>These methods present a major issue: They return a value of whitespace next to the target element, <em>not the target element</em>.</p>
+
+        <p>Avoid these elements unless you are writing for old browsers (i.e. <= IE 8, Firefox 3 and/or Safari 3.2).</p>
+      </section>
+
+
+      <section>
+        <h2>Working with Attribute Nodes</h2>
+
+        <p>Four methods exist to work with attribute nodes:</p>
+
+        <ul>
+          <li><code>hasAttribute</code></li>
+          <li><code>getAttribute</code></li>
+          <li><code>setAttribute</code></li>
+          <li><code>removeAttribute</code></li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2><code>hasAttribute</code></h2>
+
+        <p><code>hasAttribute</code> inidicates if a targeted element has an attribute. It returns a <code>true</code> or <code>false</code> value.</p>
+
+        <pre>var eagle = document.querySelector("#e");<br/>eagle.hasAttribute("class");  <span>// true</span></pre>
+      </section>
+
+
+      <section>
+        <h2><code>getAttribute</code></h2>
+
+        <p><code>getAttribute</code> returns the value of the attribute specified.</p>
+
+        <pre>var eagle = document.querySelector("#e");<br/>eagle.getAttribute("class"); <span>// bird</span></pre>
+      </section>
+
+
+      <section>
+        <h2><code>setAttribute</code></h2>
+
+        <p><code>setAttribute</code> sets (or modifies) the attribute and value specified.</p>
+
+        <pre>var eagle = document.querySelector("#e");<br/>eagle.setAttribute("class", "big-american-bird");</pre>
+
+        <p>When you set an attribute which already exists, <strong>the value is overwritten</strong>.</p>
+      </section>
+
+
+      <section>
+        <h2>Before Using <code>setAttribute</code></h2>
+
+        <p><strong>Check then get.</strong></p>
+
+        <p>Classes may include multiple values (which are often tied to CSS):</p>
+
+        <pre>&lt;p class="cat tabby small"&gt;</pre>
+
+        <p>When planning to modify attribute nodes:</p>
+
+        <ol>
+          <li>test to see if the attribute exists (<code>hasAttribute</code>)</li>
+          <li>if true, get the attribute (<code>getAttribute</code>) and store it
+            <ul>
+              <li>it may be necessary to append the old value to the new one</li>
+            </ul>
+          </li>
+          <li>set the attribute (<code>setAttribute</code>) with its new value(s)</li>
+        </ol>
+      </section>
+
+
+      <section>
+        <h2><code>setAttribute</code> Check</h2>
+
+        <pre>var cat = document.querySelector("#c");<br/><br/>if (cat.hasAttribute("class")) {  <span>// true</span><br/>  <span>// stores 'mammal' in catClassAttr</span><br/>  var catClassAttr = cat.getAttribute("class");<br/>}<br/><br/><span>// add original attributes to our new attribute</span><br/>cat.setAttribute("class", catClassAttr + " small");</pre>
+      </section>
+
+
+      <section>
+        <h2><code>removeAttribute</code></h2>
+
+        <p><code>removeAttribute</code> removes the attribute specified.</p>
+
+        <pre>var eagle = document.querySelector("#e");<br/>eagle.removeAttribute("class");</pre>
+      </section>
+
+
+      <section>
+        <h2>Working with Text Nodes</h2>
+
+        <p>There are three ways to change content in the DOM:</p>
+
+        <ul>
+          <li><code>nodeValue</code></li>
+          <li><code>textContent</code></li>
+          <li><code>innerText</code></li>
+          <li><code>innerHTML</code></li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2><code>nodeValue</code></h2>
+
+        <p><code>nodeValue</code> is an element property. A text node is always the only (first) child of an element.</p>
+
+        <p>To pinpoint the text to modify, append the firstChild property when selecting the target element.</p>
+
+        <pre>var eagle = document.querySelector("#e").firstChild;<br/>eagle.nodeValue;  <span>// eagle</span></pre>
+
+        <p>To change the text, assign it a new value:</p>
+
+        <pre>eagle.nodeValue = "Elephant";</pre>
+      </section>
+
+
+      <section>
+        <h2><code>textContent</code></h2>
+
+        <p><code>textContent</code> will change a text node, even it is wrapped within HTML.</p>
+
+        <pre>var giraffe = document.querySelector("#g");<br/>giraffe.textContent;  <span>// giraffe</span></pre>
+
+        <p>To change the text, assign it a new value:</p>
+
+        <pre>giraffe.textContent = "Gazelle"</pre>
+
+        <p>The re-assigned value cannot contain HTML.</p>
+      </section>
+
+
+      <section>
+        <h2><code>innerText</code></h2>
+
+        <p><code>innerText</code> works similarly to <code>textContent</code> except that it takes CSS into account. Because of this, it can be slower, less efficient than <code>textContent</code>.</p>
+      </section>
+
+
+      <section>
+        <h2><code>innerHTML</code></h2>
+
+        <p><code>innerHTML</code> modifies the contents of an element even if it contains HTML.</p>
+
+        <pre>var bat = document.querySelector("#b");<br/>bat.innerHTML = "&lt;strong&gt;bat&lt;/strong&gt;";</pre>
+
+        <p>However...</p>
+      </section>
+
+
+      <section>
+        <h2>Cross-Site Scripting Attacks</h2>
+
+        <p>In this course, we do not create sites which require server-side processing.</p>
+
+        <p>If you are to craft site which interacts with a database or software which processes data through a form, <strong>do not use <code>innerHTML</code></strong>. A user can insert malicious code and cause a security flaw.</p>
+      </section>
+
+
+      <section>
+        <h2>Adding an Element to the DOM</h2>
+
+        <ol>
+          <li>create the element (<code>createElement</code>)</li>
+          <li>create the text node (<code>createTextNode</code>)</li>
+          <li>append the text node to the element (<code>appendChild</code>)</li>
+          <li>append the child to the DOM tree</li>
+        </ol>
+
+        <pre>var hippo = document.createElement("li");<br/>var hippoText = document.createTextNode("Hippo");<br/>hippo.appendChild(hippoText);<br/><br/>var animals = document.querySelector("#list");<br/>animals.appendChild(hippo);</pre>
+      </section>
+
+
+      <section>
+        <h2>Removing an Element from the DOM</h2>
+
+        <ol>
+          <li>store the element to be removed</li>
+          <li>find the parent of the element to be removed</li>
+          <li>remove the element from its parent</li>
+        </ol>
+
+        <pre>var falcon = document.querySelector("#f");<br/>var animals = document.querySelector("#list");<br/>animals.removeChild(falcon);</pre>
+      </section>
+
+    </main>
+  </body>
+</html>

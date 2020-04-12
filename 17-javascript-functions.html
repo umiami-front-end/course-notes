@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: JavaScript Functions</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>Functions</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>What is a function?</h2>
+
+        <p>A function is a reusable grouping of statements which perform a specific task.</p>
+      </section>
+
+
+      <section>
+        <h2>Function Expression</h2>
+
+        <pre>function functionName() {<br/>  <span>// code goes here</span><br/>}</pre>
+
+        <ul>
+          <li><code>function</code> keyword indicate the start</li>
+          <li>a unique name followed by parentheses</li>
+          <li>curly braces wrap the code inside</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Arrow Function</h2>
+
+        <pre>() => {<br/><span>  // code goes here<br/>}</pre>
+
+        <ul>
+          <li>introduced in ES6</li>
+          <li>a more concise function expression</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Anonymous Function</h2>
+
+        <pre>var variable = function() {<br/>  <span>// code goes here</span><br/>}<br/><br/><span>// or...</span><br/><br/>function() {<br/>  <span>// code goes here</span><br/>}</pre>
+
+        <ul>
+          <li>no formal name is used</li>
+          <li>may be stored in a variable or executed immediately</li>
+          <li>often used as arguments for methods</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Calling a Function</h2>
+
+        <p>After a function has been defined, we call the function to execute the code within.</p>
+
+        <pre>function collegeCheer() {<br/>  console.log("Go Canes!");<br/>}<br/><br/><span>// more code ...</span><br/><br/>collegeCheer();</pre>
+      </section>
+
+
+      <section>
+        <h2>Parameters &amp; Arguments</h2>
+
+        <p>Parameters are defined in the function expression:</p>
+
+        <pre>function myNewFunction(<strong>parameterName</strong>) {<br/>  <span>// code ...</span><br/>}</pre>
+
+        <p>Arguments the values passed to a function.</p>
+
+        <pre>myNewFunction(<strong>argumentValue</strong>);</pre>
+      </section>
+
+
+      <section>
+        <h2>Returning a Value</h2>
+
+        <p>After a function has performed its role, we often need to return a value.</p>
+
+        <p>We use a <code>return</code> statement at the end of a function to do so.</p>
+      </section>
+
+
+      <section>
+        <h2>Function with Parameters</h2>
+
+        <pre>function addition(value1, value2) {<br/>  return value1 + value2;<br/>}</pre>
+
+        <p>The terms used inside the parentheses match the terms inside the function.</p>
+
+        <p>The value our function returns is the result of adding value1 and value2.</p>
+      </section>
+
+
+      <section>
+        <h2>Calling a Function (with Arguments)</h2>
+
+        <pre>addition(3, 4);</pre>
+
+        <p>Or...</p>
+
+        <pre>var number1 = 3;<br/>var number2 = 4;<br/><br/>addition(number1, number2);</pre>
+      </section>
+
+
+      <section>
+        <h2>Local Variables &amp; Scope</h2>
+
+        <p>A local variable is a variable contained within a function. This variable cannot be accessed from outside of the function.</p>
+
+        <p>Local variables are said to have local scope.</p>
+
+        <pre>function hello() {<br/>  var message = "Hello!";<br/>  return message;<br/>}<br/><br/>document.write(message);  <span>// message is not defined</span></pre>
+      </section>
+
+
+      <section>
+        <h2>Global Variables &amp; Scope</h2>
+
+        <p>A global variable is a variable declared outside of a function. It is accessible anywhere in the script.</p>
+
+        <p>Global variables are described as having global scope.</p>
+
+        <pre>var message = "Hello!";<br/>function hello() {<br/>  return message;<br/>}<br/><br/>document.write(message);<br/>hello(message);</pre>
+      </section>
+
+
+      <section>
+        <h2><code>var</code> vs. <code>let</code></h2>
+
+        <p><code>let</code> is more strict in its use, primarily relating to scope. Variables declared with <code>let</code>:</p>
+
+        <ul>
+          <li>scoped to the immediate enclosing block</li>
+          <li>can only be used after defined</li>
+          <li>do not create a property on the global object</li>
+          <li>cannot be re-declared</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2><code>this</code></h2>
+
+        <p><code>this</code> is a keyword which exists inside functions. It limits our methods to the properties of the object calling the function.</p>
+
+        <p><small>If you have programmed using an object-oriented language like Java or Ruby, this is like <code>self</code>.</small></p>
+      </section>
+
+
+      <section>
+        <h2>Function Expression</h2>
+
+        <p>When we use <code>this</code> inside a function, it will use the value specified within an object.</p>
+
+        <pre>var rectangle = {height: 20, width: 30};<br/>var area = function() {<br/>  return this.width * this.height;<br/>}<br/><br/>rectangle.calculateArea = area;<br/>rectangle.calculateArea();</pre>
+      </section>
+
+
+      <section>
+        <h2><code>this</code> with Global Variables</h2>
+
+        <p>We can also use <code>this</code> in a function which refers to a global variable.</p>
+
+        <pre>var color = "red";<br/>var square = {color: "blue"};<br/><br/>function getColor() {<br/>  console.log(this.color);<br/>}<br/><br/>getColor();</pre>
+
+        <p>Notice how <code>getColor();</code> returns the value of the global variable <code>color</code>, <em>not</em> the color property inside <code>square</code>.</p>
+      </section>
+
+
+      <section>
+        <h2><code>this</code> &amp; Global Scope</h2>
+
+        <p>If no global variables are defined, the this keyword used within a function will look for the property of the window.</p>
+
+        <pre>function windowHeight() {<br/>  console.log(this.innerHeight);<br/>}<br/><br/>windowHeight();</pre>
+      </section>
+
+
+      <section>
+        <h2>Object Method</h2>
+
+        <p>Rather taking an extra step to add a function to an object, we can build the function into our object from the start.</p>
+
+        <pre>var rectangle = {<br/>  height: 20,<br/>  width: 30,<br/>  calculateArea: function() {<br/>    return this.height * this.width;<br/>  }<br/>};<br/><br/>rectangle.calculateArea();</pre>
+      </section>
+    </main>
+  </body>
+</html>
