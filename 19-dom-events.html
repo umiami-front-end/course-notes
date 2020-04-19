@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front-End Fundamentals: DOM Events</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>DOM Events</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Event Types in JavaScript</h2>
+
+        <ul>
+          <li>user interface</li>
+          <li>keyboard</li>
+          <li>mouse</li>
+          <li>focus</li>
+          <li>form</li>
+          <li>mutation</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Terminology</h2>
+
+        <p>When we <strong>fire</strong> (or <strong>raise</strong>) an event, we <strong>trigger</strong> a reaction.</p>
+
+        <p>When the user clicks a button, an alert box appears.</p>
+
+        <p>When the user hovers over a link, the link color changes.</p>
+      </section>
+
+
+      <section>
+        <h2>User Interface Events</h2>
+
+        <p>User interface events fire when there is an interaction with the browser window, not the HTML document.</p>
+
+        <ul>
+          <li><code>load</code></li>
+          <li><code>unload</code></li>
+          <li><code>error</code></li>
+          <li><code>resize</code></li>
+          <li><code>scroll</code></li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Keyboard Events</h2>
+
+        <p>Keyboard events fire when a user interacts with a keyboard.</p>
+
+        <ul>
+          <li><code>input</code></li>
+          <li><code>keydown</code></li>
+          <li><code>keypress</code></li>
+          <li><code>keyup</code></li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2><code>keypress</code> vs. <code>keydown</code></h2>
+
+        <p><code>keypress</code> is the action of pressing a key, resulting in the display of a character.</p>
+
+        <p><code>keydown</code> is similar, but accounts for a user pressing an arrow key.</p>
+      </section>
+
+
+      <section>
+        <h2>Mouse Events</h2>
+
+        <p>Mouse events are fired when a user moves a mouse or clicks its buttons.</p>
+
+        <ul>
+          <li><code>click</code></li>
+          <li><code>dblclick</code></li>
+          <li><code>mousedown</code></li>
+          <li><code>mouseup</code></li>
+          <li><code>mouseover</code></li>
+          <li><code>mouseout</code></li>
+          <li><code>mousemove</code></li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2><code>mousedown</code> &amp; <code>mouseup</code></h2>
+
+        <p><code>mousedown</code> indicates when the mouse button is clicked.</p>
+
+        <p><code>mouseup</code> indicates when the button is released.</p>
+
+        <p>These events are useful for drag-and-drop functionality.</p>
+      </section>
+
+
+      <section>
+        <h2><code>mouseover</code> &amp; <code>mouseout</code></h2>
+
+        <p><code>mouseover</code> indicates when the mouse moved into an element's area.</p>
+
+        <p><code>mouseout</code> indicates when the mouse has left the element's area.</p>
+      </section>
+
+
+      <section>
+        <h2>Focus Events</h2>
+
+        <p>Focus (and blur) events occur when a user interacts with links or forms elements.</p>
+
+        <ul>
+          <li><code>focus</code></li>
+          <li><code>blur</code></li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Form Events</h2>
+
+        <p>Form events occur when a user interacts with an HTML form.</p>
+
+        <ul>
+          <li><code>submit</code></li>
+          <li><code>change</code></li>
+          <li><code>input</code></li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Mutation Events</h2>
+
+        <p>Mutation event occur when the DOM is changed.</p>
+
+        <ul>
+          <li><code>DOMNodeInserted</code></li>
+          <li><code>DOMNodeRemoved</code></li>
+          <li><code>DOMSubtreeModified</code></li>
+          <li><code>DOMNodeInsertedIntoDocument</code></li>
+          <li><code>DOMNodeRemovedFromDocument</code></li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Sequence of Events</h2>
+
+        <p>A specific sequence of steps is necessary to make a part of the DOM interactive.</p>
+
+        <ul>
+          <li>identify the node to be interacted with</li>
+          <li>indicate (bind) the event necessary for a response</li>
+          <li>define the action to be triggered</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Binding Events</h2>
+
+        <p>There are three ways to tie a node to an event:</p>
+
+        <ul>
+          <li>HTML event handlers</li>
+          <li>DOM event handlers</li>
+          <li>Event listeners</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>HTML Event Handlers</h2>
+
+        <p>An event handler is an attribute added to an HTML element which fires an event (i.e. <code>onClick</code>).</p>
+
+        <p>But in the same way presentation (CSS) should be separate from structure (HTML), so should interaction (JavaScript).</p>
+      </section>
+
+
+      <section>
+        <h2>DOM Event Handlers</h2>
+
+        <p>Another way of binding an event to HTML is using a traditional handler.</p>
+
+        <p>These can be used in old and new browsers, but they can handle only one function at a time.</p>
+
+        <pre>var submit = document.querySelector("[type=submit]");<br/><br/>function displayAlert() {<br/>  alert("Hello!");<br/>}<br/><br/>submit.onClick = displayAlert;</pre>
+      </section>
+
+
+      <section>
+        <h2>Event Listeners</h2>
+
+        <p>Event listeners are the modern way to bind an event to an element.</p>
+
+        <p>These handle more than one function (via an anonymous function), but are not supported in older browsers.</p>
+
+        <pre>var submit = document.querySelector("[type=submit]");<br/><br/>submit.addEventListener("click", function() {<br/>  alert("Alert 1!");<br/>  alert("Alert 2!");<br/>}, false);</pre>
+      </section>
+
+
+      <section>
+        <h2><code>addEventListener</code></h2>
+
+        <p><code>addEventListener</code> requires three arguments:</p>
+
+        <ul>
+          <li>the event (<code>click</code>)</li>
+          <li>the action (an anonymous function)</li>
+          <li>bubble or capture (<code>false</code>)</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>How does it work?</h2>
+
+        <p>When we fire an event, two things happen:</p>
+
+        <ol>
+          <li>the browser collects data related to the event</li>
+          <li>a <em>bubbling</em> or <em>capture</em> action occurs</li>
+        </ol>
+      </section>
+
+
+      <section>
+        <h2>The <code>event</code> object</h2>
+
+        <p>When an event is fired, the following properties tell us about it:</p>
+
+        <ul>
+          <li>What was the targeted element? (<code>event.target</code>)</li>
+          <li>What type of event occurred? (<code>event.type</code>)</li>
+          <li>Could the event be cancelled? (<code>event.cancelable</code>)</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Halting an Event</h2>
+
+        <p>The event can also be acted on using the following methods:</p>
+
+        <ul>
+          <li>Prevent the element's default behavior (<code>event.preventDefault()</code>)</li>
+          <li>Stop event bubbling/capturing (<code>event.stopPropagation()</code>)</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Bubble or Capture?</h2>
+
+        <p>What happens if you bind listeners to a parent <em>and</em> its child? How do you determine which event fires first?</p>
+
+        <p>Imagine we have a simple list:</p>
+
+        <pre>&lt;ul&gt;<br/>  &lt;li&gt;List Item&lt;/li&gt;<br/>&lt;/ul&gt;</pre>
+
+        <p>In JavaScript, one event is tied to <code>ul</code>, one to <code>li</code>. If the <code>li</code> is clicked will the event tied to <code>ul</code> or <code>li</code> fire?</p>
+      </section>
+
+
+      <section>
+        <h2>Bubble</h2>
+
+        <p>When an item <em>bubbles</em> it starts at the <em>most specific element</em> and goes up through the DOM tree.</p>
+
+        <pre>ul.addEventListener("click", whichElement, false);<br/>li.addEventListener("click", whichElement, false);</pre>
+
+        <p>In this example, the event tied to <code>li</code> is triggered first.</p>
+
+        <p>Setting the third argument in <code>addEventListener</code> to <code>false</code> will cause events to bubble.</p>
+      </section>
+
+
+      <section>
+        <h2>Capture</h2>
+
+        <p>When an item is <em>captured</em> it starts at the less specific element and goes down into the DOM tree.</p>
+
+        <pre>ul.addEventListener("click", whichElement, true);<br/>li.addEventListener("click", whichElement, true);</pre>
+
+        <p>In this example, the event tied to <code>ul</code> is triggered first.</p>
+
+        <p>Setting the third argument in <code>addEventListener</code> to <code>true</code> will cause events to capture.</p>
+      </section>
+
+
+      <section>
+        <h2><code>preventDefault()</code></h2>
+
+        <p>Some elements (like a submit button) have default behaviors. When clicking a link or submitting a form, the user is often directed to another page.</p>
+
+        <p>Sometimes this behavior needs to be turned off.</p>
+
+        <p><code>event.preventDefault()</code> stops this behavior.</p>
+      </section>
+
+
+      <section>
+        <h2><code>stopPropagation()</code></h2>
+
+        <p>Sometimes events are bound to nested elements, and yet we may only want one event to fire.</p>
+
+        <p>Assuming the event listener has been set to "bubble up," we can prevent an event tied to a more specific element from firing.</p>
+
+        <p><code>event.stopPropagation()</code> stops these from firing.</p>
+      </section>
+
+
+      <section>
+        <h2><code>return false;</code></h2>
+
+        <p>Another option — which stops the event default and bubbling — is to use the expression <code>return false;</code>.</p>
+
+        <p>When <code>return false;</code> is used, the browser breaks out of a function.</p>
+
+        <p>In the following example, the alert will never appear:</p>
+
+        <pre>function showAlert() {<br/>  return false;<br/>  alert("Hello");<br/>}</pre>
+      </section>
+
+
+      <section>
+        <h2>Event Delegation</h2>
+
+        <p>It is redundant to apply event listeners to multiple elements.</p>
+
+        <p>It adds more code, processes for the computer to handle. It slows page performance.</p>
+
+        <p>A better way:</p>
+
+        <ol>
+          <li>apply an event listener to the parent element</li>
+          <li>capture information about the event</li>
+          <li>feed target information to our function</li>
+          <li>function acts on the target (the child element)</li>
+        </ol>
+      </section>
+
+    </main>
+  </body>
+</html>
