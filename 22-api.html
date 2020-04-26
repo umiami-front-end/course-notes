@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="css/style.css" rel="stylesheet">
+    <title>Front-End Fundamentals: APIs</title>
+  </head>
+
+  <body>
+
+    <header>
+      <h1>APIs</h1>
+    </header>
+
+    <main>
+
+      <section>
+        <h2>What is an API?</h2>
+
+        <p>API stands for <strong>Application Programming Interface</strong>.</p>
+
+        <p>APIs allow us to interact with a web site, application, database, etc. and create scripts to incorporate those programs in our own web site.</p>
+      </section>
+
+
+      <section>
+        <h2>HTML-based APIs</h2>
+
+        <p>Our web pages already come with a very important API: The Document Object Model.</p>
+
+        <p>HTML5 also has built-in APIs, including:</p>
+
+        <ul>
+          <li><code>geolocation</code></li>
+          <li><code>localStorage</code></li>
+          <li><code>sessionStorage</code></li>
+          <li><code>canvas</code></li>
+        </ul>
+
+        <p>There are other built-in, browser-based APIs which are not part of the HTML5 specification.</p>
+      </section>
+
+
+      <section>
+        <h2><code>geolocation</code></h2>
+
+        <p><code>geolocation</code> API allows us to get the latitude and longitude of a user (when granted permission).</p>
+
+        <p>First, we must get the user's location. Then we can gain information about the location.</p>
+      </section>
+
+
+      <section>
+        <h2>Storage</h2>
+
+        <p>The <code>localStorage</code> API allows us to store up to 5 MB of data on our user's device.</p>
+
+        <p>We can:</p>
+
+        <ul>
+          <li><code>setItem</code></li>
+          <li><code>getItem</code></li>
+          <li><code>removeItem</code></li>
+          <li><code>clear</code></li>
+        </ul>
+
+        <p>Storage is synchronous, meaning the page must be refreshed for the data to be seen.</p>
+
+        <p>This is not the most secure method (so you'd never store sensitive information), but browsers do employ a <strong>same origin policy</strong>, which means only the host which stored the data can access it.</p>
+      </section>
+
+
+      <section>
+        <h2>local or session?</h2>
+
+        <p>The main difference between <code>localStorage</code> and <code>sessionStorage</code> is the latter is window/tab specific and wipes out when the window/tab is closed.</p>
+      </section>
+
+
+      <section>
+        <h2>Canvas</h2>
+
+        <p>The <code>canvas</code> API allows us to draw raster images using JavaScript.</p>
+
+        <p>Several graphing libraries rely on this API.</p>
+
+        <p><a href="examples/canvas.html">View Example</a></p>
+      </section>
+
+
+      <section>
+        <h2>Canvas or SVG?</h2>
+
+        <p>Canvas (raster) is new enough that we are still finding uses for it (some good, some bad).</p>
+
+        <p>SVG (vector) is also becoming a more popular option for rendering graphics in the browser.</p>
+
+        <p>The benefits to using SVG over Canvas: It can be modified using CSS or JavaScript <em>and</em> is responsive.</p>
+
+        <p>At this point: Use what works, recognize options exist, and keep an eye on the industry.</p>
+      </section>
+
+
+      <section>
+        <h2>Other APIs</h2>
+
+        <p>Many sites offer access to their databases, web applications through an API.</p>
+
+        <p><a href="http://www.programmableweb.com/">Programmable Web</a> provides links to thousands of sites offering API access.</p>
+
+        <p>Many sites will also include a "developer" section if they offer API access.</p>
+      </section>
+
+
+      <section>
+        <h2>Using APIs</h2>
+
+        <p>No two web APIs are alike. The way API data is structured can vary.</p>
+
+        <p>Most APIs come in one of two popular formats: XML or JSON.</p>
+
+        <p>Three steps to getting good at using APIs:</p>
+
+        <ul>
+          <li>Read documentation.</li>
+          <li>Practice parsing data types and structures</li>
+          <li>READ. DOCUMENTATION.</li>
+        </ul>
+
+      </section>
+
+      <section>
+        <h2>Data Formats: XML</h2>
+
+        <p>Extensible Markup Language (XML) is similar to HTML, but used to describe structured data. An example of XML is an RSS feed.</p>
+
+        <p>It requires a lot of processing, though.</p>
+
+        <p><a href="http://graphical.weather.gov/xml/SOAP_server/ndfdXMLclient.php?whichClient=NDFDgen&lat=25.72&lon=-80.27&product=time-series&begin=2004-01-01T00%3A00%3A00&end=2019-11-02T00%3A00%3A00&Unit=e&maxt=maxt&Submit=Submit">Example</a></p>
+      </section>
+
+
+      <section>
+        <h2>Data Formats: JSON</h2>
+
+        <p>JavaScript Object Notation (JSON) uses the same format as object literal notation in JavaScript.</p>
+
+        <pre>{
+  "name": "Flynn",
+  "age": 4,
+  "type": "Tabby",
+  "favoriteFood": ["Chicken", "Fish", "Pizza"]
+}</pre>
+
+        <p>Very widely used among other web sites which provide data, but requires processing.</p>
+
+        <p>We can also create our own JSON data from JavaScript Objects.</p>
+
+      </section>
+
+
+
+      <section>
+        <h2>Accidental APIs</h2>
+
+        <p>Many sites are driven by internal APIs -- applications hidden to the user, but required for making a site tick.</p>
+
+        <p>Can we get access to those?</p>
+
+        <p><strong>Yes:</strong> If a file must be loaded into the browser, it is accessible. To hunt down an 'accidental API' we can pick apart a web site to see what files are being loaded.</p>
+
+        <p><strong>No:</strong> Requires a lot of explanation.</p>
+
+      </section>
+
+
+      <section>
+        <h2>NO.</h2>
+
+        <p>Here's the problem with accidental APIs: Most sites do not grant us permission to use these for anything but personal use.</p>
+
+        <p>So if you are building an app for you (and only you), it <em>might</em> be possible to use the API. And even so, you still may get shut down if accessing the API is too taxing on the host server.</p>
+
+        <p><strong>Never use an accidental API to create your own site.</strong></p>
+
+      </section>
+
+
+      <section>
+        <h2>Examples</h2>
+
+        <p><a href="http://www.nfl.com/gamecenter/2015110111/2015/REG8/packers@broncos#menu=drivechart&tab=recap">NFL Game Recap</a> [ <a href="http://www.nfl.com/liveupdate/game-center/2015110111/2015110111_gtd.json">json</a> ]</p>
+
+        <p><a href="http://m.mlb.com/scoreboard">MLB Scoreboard</a> [ <a href="http://mlb.mlb.com/gdcross/components/game/mlb/year_2015/month_11/day_01/master_scoreboard.json">json</a> ]</p>
+
+        <p><a href="http://npr.org">NPR News Headlines</a> [ <a href="http://www.npr.org/aggregation/201492995/json?page=1&num=10">json</a> ]</p>
+      </section>
+
+
+      <section>
+        <h2>Accessing Web APIs</h2>
+
+        <p>Most sites will require registration in order to use an API.</p>
+
+        <p>Doing so will provide you with an API key, a unique set of characters tied to your account.</p>
+
+        <p>The API key allows a site to know how often you (or your application) is accessing their API.</p>
+      </section>
+
+
+      <section>
+        <h2>Protect your keys</h2>
+
+        <p>Most web applications are built using back-end scripts, which are not easily accessible to a user. Most API-driven sites will implement a key on the back-end.</p>
+
+        <p>Because JavaScript is front-facing, implementing a key on the front-end means anyone can gain and use your key.</p>
+
+        <p>When possible, have your key be processed on the back-end.</p>
+
+        <p>Never leave your key accessible via GitHub.</p>
+
+        <p>If you must expose the key, keep track of the usage.</p>
+      </section>
+
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="css/style.css" rel="stylesheet">
+    <title>Front-End Fundamentals:  Ajax</title>
+  </head>
+
+  <body>
+
+    <header>
+      <h1>Ajax</h1>
+    </header>
+
+    <main>
+
+      <section>
+        <h2>What is Ajax?</h2>
+
+        <p>"Asynchronous JavaScript and XML"</p>
+
+        <ul>
+          <li>a processing model which does not interfere with user</li>
+          <li>loads data without refreshing an entire page</li>
+        </ul>
+
+      </section>
+
+
+      <section>
+        <h2>Understanding Web Servers</h2>
+
+        <p>The web has its own protocol: Hypertext Transfer Protocol (HTTP).</p>
+
+        <ul>
+          <li>facilitates communication between a client and server</li>
+          <li>a client (web browser) requests a file from a web server</li>
+          <li>the web server acknowledges the request by sending response</li>
+          <li>if the response is "OK!", the requested file is sent</li>
+        </ul>
+
+      </section>
+
+
+      <section>
+        <h2>Requests</h2>
+
+        <p>The most common requests a client can make to a server are GET and POST.</p>
+
+        <ul>
+          <li><strong>GET</strong> retrieves data
+            <ul>
+              <li>most common request when browsing the web</li>
+            </ul>
+          </li>
+          <li><strong>POST</strong> sends data back to a server to be saved
+            <ul>
+              <li>post to a message board, update a database, submit a form</li>
+            </ul>
+          </li>
+        </ul>
+
+      </section>
+
+
+      <section>
+        <h2>HTTP Status Codes</h2>
+
+        <p>When a client makes a request, it will respond with a <em>status code</em>.</p>
+
+        <ul>
+          <li><strong>1xx:</strong> Informational</li>
+          <li><strong>2xx:</strong> Success
+            <ul>
+              <li><strong>200:</strong> OK! (file transfer begins)</li>
+            </ul>
+          </li>
+          <li><strong>3xx:</strong> Redirection
+            <ul>
+              <li><strong>301:</strong> Moved Permanently</li>
+              <li><strong>304:</strong> Not modified</li>
+            </ul>
+          </li>
+          <li><strong>4xx:</strong> Client Error
+            <ul>
+              <li><strong>404:</strong> File Not Found</li>
+            </ul>
+          </li>
+          <li><strong>5xx:</strong> Server Error
+            <ul>
+              <li><strong>500:</strong> Internal Server Error</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><small><a href="https://http.cat/">http.cat</a></small></p>
+      </section>
+
+
+      <section>
+        <h2>How Ajax Works</h2>
+
+        <p>When a browser is rendering HTML, CSS and JavaScript, it may come across an Ajax request object (XMLHttpRequest).</p>
+
+        <p>As the browser builds a page, the objects hits the server for specific data. The server sends a response, which fires the onload event in the browser.</p>
+
+        <p>Think of Ajax as a runner, assistant focused on a very specific task as a major event is ongoing.</p>
+      </section>
+
+
+    </main>
+  </body>
+</html>
